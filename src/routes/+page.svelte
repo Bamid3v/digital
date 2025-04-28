@@ -7,8 +7,10 @@
 </script>
 
 <section class="hero">
-    <div class="container">
-        <img src={LogoDv} alt="Digital Virtues logo" class="logo-dv" />
+    <div class="overlay">
+        <div class="container">
+            <img src={LogoDv} alt="Digital Virtues logo" class="logo-dv" />
+        </div>
     </div>
 </section>
 <div class="main-content">
@@ -255,11 +257,21 @@
         width: 100%;
         height: 100dvh;
         text-align: center;
-        padding: 2rem 0;
+        padding: 0;
         background: url('$lib/assets/img/res/hero.jpg') center center / cover no-repeat;
-
+        .overlay {
+            display: flex;
+            position: relative;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(from var(--color-blue-dark) r g b / 0.25);
+        }
         .logo-dv {
             width: 200px;
+            margin-top: 25px;
             height: auto;
         }
     }
