@@ -2,9 +2,7 @@
     import { base } from '$app/paths';
     import '$lib/styles/layout.scss';
 
-    import LogoDV from '$lib/assets/logo-dv-white.svg';
     import LogoText from '$lib/assets/logo-text-white.svg';
-    import { onMount } from 'svelte';
 
     interface Props {
         children?: import('svelte').Snippet;

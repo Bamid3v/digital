@@ -82,12 +82,10 @@ header {
         ul {
             display: flex;
             align-items: center;
-            // flex: 1 0 100%;
             justify-content: center;
             gap: 1rem;
 
             @media (min-width: config.$breakpoint-desktop) {
-                // flex: 0 1 auto;
             }
         }
     }
@@ -98,33 +96,56 @@ footer {
     background-color: config.$color-blue-dark;
     color: config.$color-white;
     padding: 2rem 0;
+    border-top: 1px solid config.$color-light-grey;
 
-    a {
-        color: config.$color-white;
-    }
 
-    ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-    }
+    .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        gap: 2rem;
+        padding: 1rem 1rem;
 
-    .container {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 1rem;
+        @media only screen and (max-width: config.$breakpoint-mobile) {
+          flex-direction: column;
 
-        @media (min-width: config.$breakpoint-mobile) {
-            grid-template-columns: repeat(3, 1fr);
         }
 
         h2 {
             font-size: 1.2rem;
             font-weight: 700;
+            line-height: 35px;
             margin-bottom: 0.75rem;
         }
+
+        a{
+            color: config.$color-white;
+            text-decoration: none;
+        }
+
+        a:hover{
+            text-decoration: underline;
+            color: aquamarine;
+        }
+
+        ul{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            list-style: none;
+
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+
+            li{
+                font-size: 14px;
+            }
+        }
     }
+
 }
+
 
 /* Markdown Content */
 main .content {

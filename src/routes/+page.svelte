@@ -273,6 +273,9 @@
             width: 200px;
             margin-top: 25px;
             height: auto;
+                    @media only screen and (max-width: 450px) {
+          width: 150px;
+        }
         }
     }
 
