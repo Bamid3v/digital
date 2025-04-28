@@ -4,6 +4,7 @@
 
     import LogoDV from '$lib/assets/logo-dv-white.svg';
     import LogoText from '$lib/assets/logo-text-white.svg';
+    import { onMount } from 'svelte';
 
     interface Props {
         children?: import('svelte').Snippet;
@@ -28,16 +29,18 @@
 </svelte:head>
 
 <header>
-    <nav class="container">
-        <a href="{base}/" class="brand">
-            <img class="logo-text" src={LogoText} alt="Digital Virtues GmbH" />
-        </a>
-        <ul role="list">
-            <li><a href="{base}/#mission">Mission</a></li>
-            <li><a href="{base}/#team">Team</a></li>
-            <li><a href="{base}/#references">References</a></li>
-            <li><a href="{base}/#timeline">Timeline</a></li>
-        </ul>
+    <nav>
+        <div class="content">
+            <a href="{base}/" class="brand">
+                <img class="logo-text" src={LogoText} alt="Digital Virtues GmbH" />
+            </a>
+            <ul role="list">
+                <li><a href="{base}/#mission">Mission</a></li>
+                <li><a href="{base}/#team">Team</a></li>
+                <li><a href="{base}/#references">References</a></li>
+                <li><a href="{base}/#timeline">Timeline</a></li>
+            </ul>
+        </div>
     </nav>
 </header>
 

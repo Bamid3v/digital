@@ -1,10 +1,16 @@
 <script lang="ts">
     import Person from '$lib/components/Person.svelte';
+    import LogoDv from '$lib/assets/logo-dv-white.svg';
 
     import { base } from '$app/paths';
     let { data } = $props();
 </script>
 
+<section class="hero">
+    <div class="container">
+        <img src={LogoDv} alt="Digital Virtues logo" class="logo-dv" />
+    </div>
+</section>
 <div class="main-content">
     <section id="mission">
         <div class="container">
@@ -18,7 +24,6 @@
             </h2>
         </div>
     </section>
-
     <section id="vision">
         <div class="container">
             <h2>Vision</h2>
@@ -198,7 +203,6 @@
             </div>
         </div>
     </section>
-
     <section id="timeline">
         <div class="container">
             <h2>News / Timeline</h2>
@@ -216,6 +220,7 @@
 
 <style lang="scss">
     /* Sections */
+
     section {
         vertical-align: middle;
         padding: 2rem 0;
@@ -238,6 +243,24 @@
                 font-size: 4em;
                 margin-bottom: 0.5em;
             }
+        }
+    }
+
+    .hero {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100dvh;
+        text-align: center;
+        padding: 2rem 0;
+        background: url('$lib/assets/img/res/hero.jpg') center center / cover no-repeat;
+
+        .logo-dv {
+            width: 200px;
+            height: auto;
         }
     }
 
