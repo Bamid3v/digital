@@ -500,7 +500,7 @@
             grid-template-rows: repeat(2, 1fr);
             align-items: stretch;
             justify-content: center;
-            gap: 1em;
+            gap: 2.5rem;
             padding: 0 1rem;
 
             @media only screen and (max-width: 768px) {
@@ -512,19 +512,20 @@
  
 
             .pillar {
-                background-color: rgb(from var(--color-blue-dark) r g b / 0.5);
-                border-radius: 1rem;
+                background-color: rgb(0 67 255);
+                border-radius: 12px;
                 padding: 1em;
                 text-align: left;
-
                 display: flex;
                 flex-direction: column;
                 justify-content: start;
                 align-items: center;
+                // border: 3px solid #00ffff;
 
                 img {
                     width: 100px;
                     margin-bottom: 1.5rem;
+                    color:#00ffff;  
                 }
 
 
