@@ -1,15 +1,38 @@
 <script lang="ts">
     import Person from '$lib/components/Person.svelte';
     import LogoDv from '$lib/assets/logo-dv-white.svg';
+    import LogoText from '$lib/assets/logo-text-white.svg';
+
+    import pillarImg from '$lib/assets/img/res/stars-bg.jpg';
+    import euroIcon from '$lib/assets/img/res/euro-icon.svg';
+    import profileIcon from '$lib/assets/img/res/profile-icon.svg';
+    import rocketIcon from '$lib/assets/img/res/rocket-icon.svg';
+    // import dBlueLight from '$lib/assets/logo-d-blue-light.svg';
+    // import vBlueLight from '$lib/assets/logo-v-blue-light.svg';
 
     import { base } from '$app/paths';
     let { data } = $props();
 </script>
 
-<section class="hero">
-    <div class="overlay">
-        <div class="container">
-            <img src={LogoDv} alt="Digital Virtues logo" class="logo-dv" />
+<section class="hero-section">
+    <nav>
+        <div class="content">
+            <a href="{base}/" class="brand">
+                <img class="logo-text" src={LogoText} alt="Digital Virtues GmbH" />
+            </a>
+            <ul role="list">
+                <li><a href="{base}/#mission">Mission</a></li>
+                <li><a href="{base}/#team">Team</a></li>
+                <li><a href="{base}/#references">References</a></li>
+                <li><a href="{base}/#timeline">Timeline</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="hero">
+        <div class="overlay">
+            <div class="container">
+                <img src={LogoDv} alt="Digital Virtues logo" class="logo-dv" />
+            </div>
         </div>
     </div>
 </section>
@@ -78,6 +101,7 @@
             <h2>Pillars of Operation</h2>
             <div class="pillars">
                 <div class="pillar pillar-invest">
+                    <img src={euroIcon} alt="" />
                     <h3>Venture Capital / Business Angel Activities</h3>
                     <ul>
                         <li>
@@ -98,6 +122,7 @@
                     </ul>
                 </div>
                 <div class="pillar pillar-consult">
+                    <img src={profileIcon} alt="" />
                     <h3>Consulting</h3>
                     <p>
                         Our consulting activities are very diverse reflecting our personal expertise
@@ -127,6 +152,7 @@
                     </ul>
                 </div>
                 <div class="pillar pillar-projects">
+                    <img src={rocketIcon} alt="" />
                     <h3>Projects, Activities & Interests</h3>
                     <ul>
                         <li>
@@ -162,6 +188,9 @@
                         <!-- <li>Knowledge Extension</li> -->
                         <!-- <li>Proxy Manager</li> -->
                     </ul>
+                </div>
+                <div class=" pillar-img">
+                    <img src={pillarImg} alt="" />
                 </div>
             </div>
         </div>
@@ -225,12 +254,16 @@
 
     section {
         vertical-align: middle;
-        padding: 2rem 0;
-
+        // padding: 6rem 0;
+        position: relative;
         color: var(--color-white);
 
         :global(a) {
             color: var(--color-cyan);
+        }
+
+        .container {
+            padding: 6rem 0;
         }
 
         &#vision,
@@ -241,25 +274,88 @@
         &#timeline {
             h2 {
                 font-weight: 900;
+                line-height: 5rem ;
                 text-align: center;
-                font-size: 4em;
+                font-size: 4.3rem;
                 margin-bottom: 0.5em;
             }
         }
     }
-
-    .hero {
-        display: flex;
-        position: relative;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+    .hero-section {
         width: 100%;
         height: 100dvh;
-        text-align: center;
-        padding: 0;
-        background: url('$lib/assets/img/res/hero.jpg') center center / cover no-repeat;
-        .overlay {
+        position: relative;
+
+        nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+        
+            width: 100%;
+            z-index: 1000;
+
+            .content {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                row-gap: 30px;
+                padding: 1.5rem 1rem;
+                justify-content: space-between;
+                max-width: 1280px;
+                margin: 0 auto;
+
+                .brand {
+                    width: 15rem;
+                    text-decoration: none;
+                    img {
+                        height: 2rem;
+                    }
+                }
+
+                @media only screen and (max-width: 768px) {
+                    flex-direction: column;
+                    row-gap: 6px;
+                    justify-content: center;
+                    padding: 0.5rem;
+                }
+            }
+
+            a {
+                color: #f8f8f8;
+                text-decoration: none;
+                // margin-bottom: 0.75rem;
+
+                @media (min-width: 1024px) {
+                    margin-bottom: 0;
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                    text-underline-offset: 0.2rem;
+                    color: aquamarine;
+                }
+            }
+
+            ul {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1rem;
+                font-weight: 600;
+                padding-left: 0;
+                line-height:19px;
+                gap: 3rem;
+                margin-bottom: 0px;
+
+                @media only screen and (max-width: 768px){
+                    gap: 1rem;
+                }
+            }
+        }
+
+        .hero {
             display: flex;
             position: relative;
             flex-direction: column;
@@ -267,15 +363,27 @@
             justify-content: center;
             width: 100%;
             height: 100%;
-            background-color: rgb(from var(--color-blue-dark) r g b / 0.25);
-        }
-        .logo-dv {
-            width: 200px;
-            margin-top: 25px;
-            height: auto;
-                    @media only screen and (max-width: 450px) {
-          width: 150px;
-        }
+            text-align: center;
+            padding: 0;
+            background: url('$lib/assets/img/res/hero.jpg') center center / cover no-repeat;
+            .overlay {
+                display: flex;
+                position: relative;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                background-color: rgb(from var(--color-blue-dark) r g b / 0.25);
+            }
+            .logo-dv {
+                width: 200px;
+                margin-top: 25px;
+                height: auto;
+                @media only screen and (max-width: 450px) {
+                    width: 150px;
+                }
+            }
         }
     }
 
@@ -284,12 +392,21 @@
         h2 {
             font-size: 1.75rem;
             font-weight: 900;
+            width: 100%;
+            display: flex;  
+            justify-content: center;
+            align-items: center;
         }
 
         blockquote {
             position: relative;
+            font-size: 36px;
+            text-align: center;
+            font-weight: 700;
+            line-height: 40px;
             padding: 1em 0.5em;
             text-wrap: pretty;
+            max-width: 900px;
         }
 
         blockquote::before {
@@ -330,26 +447,45 @@
     }
 
     section#vision {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
+        h2{
+
+        }
+
         p {
             text-align: center;
             text-wrap: pretty;
+            max-width: 700px;
         }
     }
 
     /* Values Section */
     section#values {
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            max-width: 700px;
+        }
         dl {
             margin: auto;
             text-align: center;
 
             dt {
                 font-weight: 700;
-                font-size: 1.25em;
+                font-size: 1.15em;
             }
 
             dd {
                 padding-left: 1em;
                 line-height: 1.5;
+                font-size: 1rem;
                 margin-bottom: 1.5em;
                 text-wrap: pretty;
             }
@@ -359,43 +495,78 @@
     /* Pillars Section */
     section#pillars {
         .pillars {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
             align-items: stretch;
             justify-content: center;
             gap: 1em;
+            padding: 0 1rem;
+
+            @media only screen and (max-width: 768px) {
+                    grid-template-columns: repeat(1, 1fr);
+                    grid-template-rows: repeat(1, 1fr);
+            // padding: 0 2rem;
+
+            }
+ 
 
             .pillar {
                 background-color: rgb(from var(--color-blue-dark) r g b / 0.5);
                 border-radius: 1rem;
-
-                flex: 1 1 95%;
                 padding: 1em;
+                text-align: left;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: center;
+
+                img {
+                    width: 100px;
+                    margin-bottom: 1.5rem;
+                }
+
 
                 @media (min-width: 1024px) {
-                    flex: 1 1 30%;
                     padding: 2em;
                     border-radius: 2rem;
                 }
 
-                h3,
-                ul,
-                p {
-                    text-wrap: pretty;
-                }
-
                 h3 {
+                    font-size: 1.5rem;
                     margin-bottom: 1em;
+                    text-align: center;
                 }
 
                 ul li,
                 p {
                     margin-bottom: 0.5em;
+                    text-align: left;
                 }
 
                 ul li {
                     margin-left: 0.75em;
                     padding-left: 0.25em;
+                }
+            }
+            .pillar-img {
+                background: #000;
+                display: flex;
+                padding: 0px;
+                justify-content: center;
+                align-items: start;
+                border-radius: 1rem;
+                // flex: 1 1 95%;
+                width: 100%;
+                height: 100%;
+
+                img {
+                    width: 100%;
+                    border-radius: 1rem;
+
+                    height: auto;
+                    object-fit: cover;
                 }
             }
         }

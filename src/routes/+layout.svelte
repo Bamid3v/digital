@@ -1,6 +1,7 @@
 <script lang="ts">
     import { base } from '$app/paths';
     import '$lib/styles/layout.scss';
+    import { page } from '$app/stores';
 
     import LogoText from '$lib/assets/logo-text-white.svg';
 
@@ -9,6 +10,7 @@
     }
 
     let { children }: Props = $props();
+    let currentPath = $page.url.pathname;
 </script>
 
 <svelte:head>
@@ -27,7 +29,7 @@
 </svelte:head>
 
 <header>
-    <nav>
+    <nav class={currentPath === '/' ? 'none' : ''}>
         <div class="content">
             <a href="{base}/" class="brand">
                 <img class="logo-text" src={LogoText} alt="Digital Virtues GmbH" />
