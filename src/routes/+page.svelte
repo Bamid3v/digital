@@ -4,13 +4,11 @@
     import LogoText from '$lib/assets/logo-text-white.svg';
 
     import pillarImg from '$lib/assets/img/res/stars-bg.jpg';
-    import euroIcon from '$lib/assets/img/res/euro-icon.svg';
-    import profileIcon from '$lib/assets/img/res/profile-icon.svg';
-    import rocketIcon from '$lib/assets/img/res/rocket-icon.svg';
     // import dBlueLight from '$lib/assets/logo-d-blue-light.svg';
     // import vBlueLight from '$lib/assets/logo-v-blue-light.svg';
 
     import { base } from '$app/paths';
+    import Timeline from '$lib/components/Timeline.svelte';
     let { data } = $props();
 </script>
 
@@ -101,7 +99,21 @@
             <h2>Pillars of Operation</h2>
             <div class="pillars">
                 <div class="pillar pillar-invest">
-                    <img src={euroIcon} alt="" />
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="lucide lucide-euro-icon lucide-euro"
+                        ><path d="M4 10h12" /><path d="M4 14h9" /><path
+                            d="M19 6a7.7 7.7 0 0 0-5.2-2A7.9 7.9 0 0 0 6 12c0 4.4 3.5 8 7.8 8 2 0 3.8-.8 5.2-2"
+                        /></svg
+                    >
                     <h3>Venture Capital / Business Angel Activities</h3>
                     <ul>
                         <li>
@@ -123,7 +135,7 @@
                 </div>
 
                 <div class="pillar pillar-projects">
-                    <img src={rocketIcon} alt="" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rocket-icon lucide-rocket"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
                     <h3>Projects, Activities & Interests</h3>
                     <ul>
                         <li>
@@ -161,7 +173,7 @@
                     </ul>
                 </div>
                 <div class="pillar pillar-consult">
-                    <img src={profileIcon} alt="" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-user-icon lucide-square-user"><rect width="18" height="18" x="3" y="3" rx="2"/><circle cx="12" cy="10" r="3"/><path d="M7 21v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/></svg>
                     <h3>Consulting</h3>
                     <p>
                         Our consulting activities are very diverse reflecting our personal expertise
@@ -238,7 +250,7 @@
             </div>
         </div>
     </section>
-    <section id="timeline">
+    <!-- <section id="timeline">
         <div class="container">
             <h2>News / Timeline</h2>
             {#each data.news as news}
@@ -250,8 +262,14 @@
                 </div>
             {/each}
         </div>
-    </section>
+    </section> -->
 </div>
+<section id="timeline">
+    <div class="container">
+        <h2>News / Timeline</h2>
+        <Timeline />
+    </div>
+</section>
 
 <style lang="scss">
     /* Sections */
@@ -278,9 +296,9 @@
         &#timeline {
             h2 {
                 font-weight: 900;
-                line-height: 5rem;
+                line-height: 4.3rem;
                 text-align: center;
-                font-size: 4.3rem;
+                font-size: 4rem;
                 margin-bottom: 0.5em;
             }
         }
@@ -393,6 +411,7 @@
 
     /* Mission Section */
     section#mission {
+        padding: 0rem 0.7rem;
         h2 {
             font-size: 1.75rem;
             font-weight: 900;
@@ -404,13 +423,18 @@
 
         blockquote {
             position: relative;
-            font-size: 36px;
+            font-size: 3rem;
             text-align: center;
             font-weight: 700;
-            line-height: 40px;
+            line-height: 55px;
             padding: 1em 0.5em;
             text-wrap: pretty;
-            max-width: 900px;
+            // max-width: 900px;
+
+            @media only screen and (max-width: 768px) {
+                font-size: 1.75rem;
+                line-height: 2rem;
+            }
         }
 
         blockquote::before {
@@ -455,14 +479,13 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
-        h2 {
-        }
+        padding: 0rem 0.7rem;
 
         p {
+            font-size: 1.25rem;
             text-align: center;
             text-wrap: pretty;
-            max-width: 700px;
+            max-width: 900px;
         }
     }
 
@@ -474,7 +497,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            max-width: 700px;
+            max-width: 900px;
         }
         dl {
             margin: auto;
@@ -482,17 +505,18 @@
 
             dt {
                 font-weight: 700;
-                font-size: 1.15em;
+                font-size: 1.5em;
             }
 
             dd {
-                padding-left: 1em;
+                padding: 0 0.75rem;
                 line-height: 1.5;
+                font-weight: 500;
                 text-align: center;
-                font-size: 1rem;
+                font-size: 1.25rem;
                 margin-bottom: 1.5em;
                 text-wrap: pretty;
-                max-width: 500px;
+                max-width: 900px;
             }
         }
     }
@@ -537,6 +561,10 @@
                         color: rgb(0 67 255);
                         text-decoration: underline;
                     }
+
+                    svg{
+                        color: rgb(0 67 255);
+                    }
                 }
 
                 a {
@@ -547,10 +575,11 @@
                     line-height: 2rem;
                 }
 
-                img {
+                svg {
                     width: 94px;
+                    height: 94px;
                     margin-bottom: 1.5rem;
-                    color: #00ffff;
+                    color: #f8f8f8;
                 }
 
                 @media (min-width: 1024px) {
@@ -560,7 +589,7 @@
 
                 h3 {
                     font-size: 2.25rem;
-                    margin-bottom: 1em;
+                    margin-bottom: 0.5em;
                     text-align: center;
                     font-weight: bold;
                     line-height: 44px;
@@ -615,7 +644,6 @@
             justify-content: center;
             align-items: center;
 
-            
             // 717px
             @media (min-width: 768px) {
                 max-width: var(--breakpoint-desktop);
@@ -628,57 +656,58 @@
     }
 
     /* References Section */
-    section#references {
-    }
+    // section#references {
+    // }
 
     /* Timeline Section */
     section#timeline {
-        .timeline-year {
-            text-align: left;
-
-            overflow: auto;
-            margin-right: 0px;
-            margin-left: 1px;
-            position: relative;
-            margin-bottom: 2rem;
-
-            padding: 1rem;
-
-            background-color: rgb(from var(--color-cyan) r g b / 0.25);
-
-            border-radius: 1rem;
-
-            :global(h3) {
-                font-size: 2.5rem;
-                margin-bottom: 0.5rem;
-            }
-
-            :global(h4) {
-                font-size: 1.25rem;
-                color: var(--color-cyan);
-                margin-bottom: 0.5rem;
-            }
-
-            @media (min-width: 1024px) {
-                width: 50%;
-                float: left;
-                // border-radius: 2rem;
-                margin-bottom: 0;
-
-                &:nth-child(odd) {
-                    float: right;
-                    margin-left: 0;
-                    margin-right: 1px;
-                    text-align: right;
-                }
-            }
+        background-color: #000627;
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 0;
         }
-
-        .container::after {
-            content: '';
-            clear: both;
-            display: table;
+        h2{
+            margin-bottom: 2em;
         }
+        // .timeline-year {
+        //     text-align: left;
+        //     overflow: auto;
+        //     margin-right: 0px;
+        //     margin-left: 1px;
+        //     position: relative;
+        //     margin-bottom: 2rem;
+        //     padding: 1rem;
+        //     background-color: rgb(from var(--color-cyan) r g b / 0.25);
+        //     border-radius: 1rem;
+
+        //     :global(h3) {
+        //         font-size: 2.5rem;
+        //         margin-bottom: 0.5rem;
+        //     }
+
+        //     :global(h4) {
+        //         font-size: 1.25rem;
+        //         color: var(--color-cyan);
+        //         margin-bottom: 0.5rem;
+        //     }
+
+        //     @media (min-width: 1024px) {
+        //         width: 50%;
+        //         float: left;
+        //         // border-radius: 2rem;
+        //         margin-bottom: 0;
+
+        //         &:nth-child(odd) {
+        //             float: right;
+        //             margin-left: 0;
+        //             margin-right: 1px;
+        //             text-align: right;
+        //         }
+        //     }
+        // }
     }
 
     /* Background Animation */
