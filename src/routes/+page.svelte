@@ -121,36 +121,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="pillar pillar-consult">
-                    <img src={profileIcon} alt="" />
-                    <h3>Consulting</h3>
-                    <p>
-                        Our consulting activities are very diverse reflecting our personal expertise
-                        and experiences. They are mainly centered around personal, business and
-                        strategic development. Lately we cover mostly entrepreneural topics like
-                        scoping, sales and HR as well as specific questions in crypto, software or
-                        infrastructre projects.
-                    </p>
-                    Following a few examples:
-                    <ul>
-                        <li>Mentoring of students and (future) founders</li>
-                        <li>
-                            Supporting entrepreneurs and startup teams on a monthly basis regarding
-                            prioritization, growth, HR and a wide range of other questions and needs
-                            as they arise.
-                        </li>
-                        <li>IT- process design and advisory</li>
-                        <li>
-                            Information technology consulting, i.e. make or buy, decision support
-                            regarding software and implementation options, design and implementation
-                            of architecture and infrastructure, ...
-                        </li>
-                        <li>
-                            As certified project managers we support our customers and partners in
-                            any aspect of project and portfolio management.
-                        </li>
-                    </ul>
-                </div>
+
                 <div class="pillar pillar-projects">
                     <img src={rocketIcon} alt="" />
                     <h3>Projects, Activities & Interests</h3>
@@ -189,6 +160,36 @@
                         <!-- <li>Proxy Manager</li> -->
                     </ul>
                 </div>
+                <div class="pillar pillar-consult">
+                    <img src={profileIcon} alt="" />
+                    <h3>Consulting</h3>
+                    <p>
+                        Our consulting activities are very diverse reflecting our personal expertise
+                        and experiences. They are mainly centered around personal, business and
+                        strategic development. Lately we cover mostly entrepreneural topics like
+                        scoping, sales and HR as well as specific questions in crypto, software or
+                        infrastructre projects.
+                    </p>
+                    Following a few examples:
+                    <ul>
+                        <li>Mentoring of students and (future) founders</li>
+                        <li>
+                            Supporting entrepreneurs and startup teams on a monthly basis regarding
+                            prioritization, growth, HR and a wide range of other questions and needs
+                            as they arise.
+                        </li>
+                        <li>IT- process design and advisory</li>
+                        <li>
+                            Information technology consulting, i.e. make or buy, decision support
+                            regarding software and implementation options, design and implementation
+                            of architecture and infrastructure, ...
+                        </li>
+                        <li>
+                            As certified project managers we support our customers and partners in
+                            any aspect of project and portfolio management.
+                        </li>
+                    </ul>
+                </div>
                 <div class=" pillar-img">
                     <img src={pillarImg} alt="" />
                 </div>
@@ -196,31 +197,34 @@
         </div>
     </section>
 
+    <!-- img="peter-eulberg.jpg" -->
     <section id="team">
         <div class="container">
             <h2>Team</h2>
-            <Person
-                firstName="Peter"
-                lastName="Eulberg"
-                description="Successful blockchain startup founder with executive leadership experience, specializing in organizational development, portfolio management, and expertise spanning entrepreneurship, web3, technology, and business process analysis."
-                role="CEO"
-                company="Digital Virtues GmbH"
-                companyUrl="https://digitalvirtues.com/"
-                img="peter-eulberg.jpg"
-                homepage="https://eulberg.info/"
-                linkedin="https://www.linkedin.com/in/eulberg/"
-            />
-            <Person
-                firstName="Sascha"
-                lastName="Göbel"
-                description="Data Wrangler, AI Whisperer, Code Monkey, Investor, Serial Entrepreneur, Helpdesk, Meme Connoisseur. I do stuff with computers."
-                role="CTO"
-                company="Digital Virtues GmbH"
-                companyUrl="https://digitalvirtues.com/"
-                img="sascha-goebel.jpg"
-                homepage="https://www.saschagoebel.com/"
-                linkedin="https://www.linkedin.com/in/saschagoebel/"
-            />
+            <div class="team-info">
+                <Person
+                    firstName="Peter"
+                    lastName="Eulberg"
+                    description="Successful blockchain startup founder with executive leadership experience, specializing in organizational development, portfolio management, and expertise spanning entrepreneurship, web3, technology, and business process analysis."
+                    role="CEO"
+                    company="Digital Virtues GmbH"
+                    companyUrl="https://digitalvirtues.com/"
+                    img="peter-eulberg.jpg"
+                    homepage="https://www.saschagoebel.com/"
+                    linkedin="https://www.linkedin.com/in/eulberg/"
+                />
+                <Person
+                    firstName="Sascha"
+                    lastName="Göbel"
+                    description="Data Wrangler, AI Whisperer, Code Monkey, Investor, Serial Entrepreneur, Helpdesk, Meme Connoisseur. I do stuff with computers."
+                    role="CTO"
+                    company="Digital Virtues GmbH"
+                    companyUrl="https://digitalvirtues.com/"
+                    img="sascha-goebel.jpg"
+                    homepage="https://www.saschagoebel.com/"
+                    linkedin="https://www.linkedin.com/in/saschagoebel/"
+                />
+            </div>
         </div>
     </section>
 
@@ -274,7 +278,7 @@
         &#timeline {
             h2 {
                 font-weight: 900;
-                line-height: 5rem ;
+                line-height: 5rem;
                 text-align: center;
                 font-size: 4.3rem;
                 margin-bottom: 0.5em;
@@ -292,7 +296,7 @@
             justify-content: center;
             align-items: center;
             position: absolute;
-        
+
             width: 100%;
             z-index: 1000;
 
@@ -345,11 +349,11 @@
                 font-size: 1rem;
                 font-weight: 600;
                 padding-left: 0;
-                line-height:19px;
+                line-height: 19px;
                 gap: 3rem;
                 margin-bottom: 0px;
 
-                @media only screen and (max-width: 768px){
+                @media only screen and (max-width: 768px) {
                     gap: 1rem;
                 }
             }
@@ -393,7 +397,7 @@
             font-size: 1.75rem;
             font-weight: 900;
             width: 100%;
-            display: flex;  
+            display: flex;
             justify-content: center;
             align-items: center;
         }
@@ -451,9 +455,8 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        
-        h2{
 
+        h2 {
         }
 
         p {
@@ -485,9 +488,11 @@
             dd {
                 padding-left: 1em;
                 line-height: 1.5;
+                text-align: center;
                 font-size: 1rem;
                 margin-bottom: 1.5em;
                 text-wrap: pretty;
+                max-width: 500px;
             }
         }
     }
@@ -500,18 +505,17 @@
             grid-template-rows: repeat(2, 1fr);
             align-items: stretch;
             justify-content: center;
-            gap: 2.5rem;
-            padding: 0 1rem;
+            gap: 1.5rem;
+            padding: 1rem 6rem 0 6rem;
 
             @media only screen and (max-width: 768px) {
-                    grid-template-columns: repeat(1, 1fr);
-                    grid-template-rows: repeat(1, 1fr);
-            // padding: 0 2rem;
-
+                grid-template-columns: repeat(1, 1fr);
+                grid-template-rows: repeat(1, 1fr);
+                padding: 0 0.7rem;
             }
- 
 
             .pillar {
+                cursor: pointer;
                 background-color: rgb(0 67 255);
                 border-radius: 12px;
                 padding: 1em;
@@ -520,14 +524,34 @@
                 flex-direction: column;
                 justify-content: start;
                 align-items: center;
+                color: #f8f8f8;
+                // max-width: 450px;
                 // border: 3px solid #00ffff;
+                list-style-image: url('$lib/assets/logo-dv-white.svg');
+                &:hover {
+                    background-color: #00ffff;
+                    color: rgb(0 67 255);
+                    list-style-image: url('$lib/assets/logo-dv-blue-light.svg');
 
-                img {
-                    width: 100px;
-                    margin-bottom: 1.5rem;
-                    color:#00ffff;  
+                    a {
+                        color: rgb(0 67 255);
+                        text-decoration: underline;
+                    }
                 }
 
+                a {
+                    color: #f8f8f8;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 1.25rem;
+                    line-height: 2rem;
+                }
+
+                img {
+                    width: 94px;
+                    margin-bottom: 1.5rem;
+                    color: #00ffff;
+                }
 
                 @media (min-width: 1024px) {
                     padding: 2em;
@@ -535,13 +559,17 @@
                 }
 
                 h3 {
-                    font-size: 1.5rem;
+                    font-size: 2.25rem;
                     margin-bottom: 1em;
                     text-align: center;
+                    font-weight: bold;
+                    line-height: 44px;
                 }
 
-                ul li,
+                ul li a,
                 p {
+                    font-size: 1rem;
+                    line-height: 14.4pt;
                     margin-bottom: 0.5em;
                     text-align: left;
                 }
@@ -571,14 +599,32 @@
                 }
             }
         }
-
-        ul {
-            list-style-image: url('$lib/assets/logo-dv-white.svg');
-        }
     }
 
     /* Team Section */
     section#team {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .team-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+
+            
+            // 717px
+            @media (min-width: 768px) {
+                max-width: var(--breakpoint-desktop);
+                margin: auto;
+            }
+        }
+        h2 {
+            margin-bottom: 1em;
+        }
     }
 
     /* References Section */
