@@ -57,7 +57,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        width: 900px;
+        width: 1000px;
         @media only screen and (max-width: 1000px) {
             width: 800px;
         }
@@ -109,7 +109,7 @@
 
         .timeline-box {
             // width: 400px;
-            max-width: 450px;
+            max-width: 500px;
             height: 500px;
             position: relative;
             @media only screen and (max-width: 1000px) {
@@ -158,7 +158,7 @@
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
-                padding: 25px 30px 30px 0px;
+                padding: 25px 30px 30px 25px;
 
 
                 h2 {

@@ -8,26 +8,6 @@
 </script>
 
 <figure class="testimonial" {id}>
-    <JsonLd
-        type="Review"
-        data={{
-            author: {
-                '@type': 'Person',
-                name: author
-            },
-            reviewBody: textContent,
-            datePublished: new Date(date).toISOString().slice(0, 10),
-            itemReviewed: {
-                '@type': 'Organization',
-                name: 'Digital Virtues GmbH',
-                url: 'https://digitalvirtues.com'
-            }
-        }}
-    />
-
-    <blockquote>
-        {@render children?.()}
-    </blockquote>
     <figcaption>
         {#if loadedImage}
             <enhanced:img
@@ -37,23 +17,109 @@
                 class="photo"
             />
         {/if}
-        {author}, {role} at <a href={url}>{company}</a>
     </figcaption>
+    <div class="content">
+        <h3>{author}</h3>
+        <h4>{role} at <a href={url}>{company}</a></h4>
+        <JsonLd
+            type="Review"
+            data={{
+                author: {
+                    '@type': 'Person',
+                    name: author
+                },
+                reviewBody: textContent,
+                datePublished: new Date(date).toISOString().slice(0, 10),
+                itemReviewed: {
+                    '@type': 'Organization',
+                    name: 'Digital Virtues GmbH',
+                    url: 'https://digitalvirtues.com'
+                }
+            }}
+        />
+
+        <blockquote>
+            {@render children?.()}
+        </blockquote>
+    </div>
 </figure>
 
 <style lang="scss">
+
     .testimonial {
         text-align: center;
         margin-bottom: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        gap: 24px;
+        width: 100%;
+        padding: 1rem;
+        border-radius: 1rem;
+        background-color: rgb(0, 67, 255);
+
+        @media only screen and (max-width: 768px) {
+            flex-direction: column;
+            margin-bottom: 0rem;
+        }   
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap: 12px;
+            max-width: 900px;
+
+            @media only screen and (max-width: 768px) {
+                gap:4px;
+                width: 100%;
+            
+                h3{
+                    font-size: 1.75rem;
+                margin: 0;
+
+                }
+                h4{
+                    font-size:1.25rem ;
+                margin-bottom: 0.2rem;
+
+                }
+                blockquote{
+                    font-size: 1rem;
+                }
+        }   
+
+            h3 {
+                font-weight: 700;
+                font-size: 2.25rem;
+                margin-bottom: 0.5rem;
+            }
+
+            h4 {
+                font-weight: 700;
+                font-size: 1.5rem;
+                margin-bottom: 0.75rem;
+                text-align: left;
+            }
+
+            p {
+                margin-bottom: 1rem;
+                line-height: 14.4pt;
+                margin: 0;
+                color: var(--color-text-secondary);
+            }
+        }
 
         blockquote {
-            max-width: var(--breakpoint-mobile);
-            margin: 1rem auto;
-            padding: 1em;
+            // max-width: var(--breakpoint-mobile);
             position: relative;
-            text-wrap: pretty;
+            text-align: left;
+            font-size: 1.25rem;
+            max-width: 900px;
+            overflow-wrap: break-word;
 
-            &::before {
+            /* &::before {
                 content: url('$lib/assets/logo-v-white.svg');
                 min-width: 1.25em;
                 min-height: 1.25em;
@@ -69,7 +135,7 @@
                 position: absolute;
                 right: 0;
                 top: 0;
-            }
+            } */
         }
 
         .photo {

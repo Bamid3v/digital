@@ -65,7 +65,7 @@
             <h2>Socials</h2>
             <ul>
                 <!-- <li><a href="{base}/">Twitter / X</a></li> -->
-                <li><a href="https://www.linkedin.com/company/digitalvirtues/">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/company/digitalvirtues/" target="_blank">LinkedIn</a></li>
                 <!-- <li><a href="{base}/">Instagram</a></li>
                 <li><a href="{base}/">Facebook</a></li>
                 <li><a href="{base}/">TikTok</a></li>
@@ -84,9 +84,9 @@
                 <li><a href="{base}/">Knowledge Collector</a></li>
                 <li><a href="{base}/">Creator Cartel</a></li>
                 <li><a href="{base}/">Trading AI</a></li> -->
-                <li><a href="{base}/anyblock-analytics/">Anyblock Analytics GmbH</a></li>
-                <li><a href="https://www.dielichtmatrosen.de/">Lichtmatrosen</a></li>
-                <li><a href="https://peachandlime.shop/">Peach & Lime</a></li>
+                <li><a href="{base}/anyblock-analytics/" target="_blank">Anyblock Analytics GmbH</a></li>
+                <li><a href="https://www.dielichtmatrosen.de/" target="_blank">Lichtmatrosen</a></li>
+                <li><a href="https://peachandlime.shop/" target="_blank">Peach & Lime</a></li>
             </ul>
         </div>
     </div>

@@ -35,12 +35,12 @@
 
     <div class="person-info">
         <h3>{firstName} {lastName}</h3>
-        <h4><a href={companyUrl}>{role} {company}</a></h4>
+        <h4><a href={companyUrl} target="_blank">{role} {company}</a></h4>
         <p>{description}</p>
 
         <div class="links">
-            <a href={homepage}>Homepage</a>
-            <a href={linkedin}>LinkedIn</a>
+            <a href={homepage} target="_blank">Homepage</a>
+            <a href={linkedin} target="_blank">LinkedIn</a>
         </div>
     </div>
 </div>
@@ -64,7 +64,7 @@
             }
         }
 
-        @media only screen and (max-width: 520px) {
+        @media only screen and (max-width: 768px) {
             flex-direction: column;
             gap: 6px;
             justify-content: center;
@@ -87,12 +87,12 @@
 
         .photo-container {
             position: relative;
-            width: 12rem;
+            width: 18rem;
             margin: 0 auto;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 50%;
+            // border-radius: 50%;  
             overflow: hidden;
             background-color: var(--color-background);
         }
@@ -106,14 +106,14 @@
 
             h4 {
                 font-weight: 700;
-                font-size: 1.5rem;
+                font-size: 1.75rem;
                 margin-bottom: 0.75rem;
             }
 
             p {
-                margin-bottom: 1rem;
-                line-height: 14.4pt;
-                max-width: 520px;
+                margin-bottom: 1.25rem;
+                line-height: 1.5rem;
+                max-width: 700px;
             }
             .links {
                 display: flex;
@@ -128,7 +128,9 @@
                 text-decoration: none;
                 // color: var(--color-primary);
                 font-weight: 700;
-                font-size: 1rem;
+                font-size: 1.5rem;
+                transition: all 0.5s ease-in-out;
+
                 cursor: pointer;
                 &:hover {
                     text-decoration: underline;
