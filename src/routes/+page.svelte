@@ -4,6 +4,7 @@
     import LogoText from '$lib/assets/logo-text-white.svg';
 
     import pillarImg from '$lib/assets/img/res/stars-bg.jpg';
+    import blendImage from '$lib/assets/img/res/imageBlend.jpg';
     // import dBlueLight from '$lib/assets/logo-d-blue-light.svg';
     // import vBlueLight from '$lib/assets/logo-v-blue-light.svg';
 
@@ -31,6 +32,7 @@
             <div class="container">
                 <img src={LogoDv} alt="Digital Virtues logo" class="logo-dv" />
             </div>
+            <div class="blend-bg"></div>
         </div>
     </div>
 </section>
@@ -94,7 +96,40 @@
         </div>
     </section>
 
+    <!-- img="peter-eulberg.jpg" -->
+    <section id="team">
+        <div class="team-bg-blend"></div>
+        <div class="container">
+            <h2>Team</h2>
+            <div class="team-info">
+                <Person
+                    firstName="Peter"
+                    lastName="Eulberg"
+                    description="Successful blockchain startup founder with executive leadership experience, specializing in organizational development, portfolio management, and expertise spanning entrepreneurship, web3, technology, and business process analysis."
+                    role="CEO"
+                    company="Digital Virtues GmbH"
+                    companyUrl="https://digitalvirtues.com/"
+                    img="peter.png"
+                    homepage="https://www.saschagoebel.com/"
+                    linkedin="https://www.linkedin.com/in/eulberg/"
+                />
+                <Person
+                    firstName="Sascha"
+                    lastName="Göbel"
+                    description="Data Wrangler, AI Whisperer, Code Monkey, Investor, Serial Entrepreneur, Helpdesk, Meme Connoisseur. I do stuff with computers."
+                    role="CTO"
+                    company="Digital Virtues GmbH"
+                    companyUrl="https://digitalvirtues.com/"
+                    img="Sascha.png"
+                    homepage="https://www.saschagoebel.com/"
+                    linkedin="https://www.linkedin.com/in/saschagoebel/"
+                />
+            </div>
+        </div>
+    </section>
     <section id="pillars">
+        <div class="pillar-bg-blend"></div>
+
         <div class="container">
             <h2>Pillars of Operation</h2>
             <div class="pillars">
@@ -245,38 +280,8 @@
         </div>
     </section>
 
-    <!-- img="peter-eulberg.jpg" -->
-    <section id="team">
-        <div class="container">
-            <h2>Team</h2>
-            <div class="team-info">
-                <Person
-                    firstName="Peter"
-                    lastName="Eulberg"
-                    description="Successful blockchain startup founder with executive leadership experience, specializing in organizational development, portfolio management, and expertise spanning entrepreneurship, web3, technology, and business process analysis."
-                    role="CEO"
-                    company="Digital Virtues GmbH"
-                    companyUrl="https://digitalvirtues.com/"
-                    img="peter.png"
-                    homepage="https://www.saschagoebel.com/"
-                    linkedin="https://www.linkedin.com/in/eulberg/"
-                />
-                <Person
-                    firstName="Sascha"
-                    lastName="Göbel"
-                    description="Data Wrangler, AI Whisperer, Code Monkey, Investor, Serial Entrepreneur, Helpdesk, Meme Connoisseur. I do stuff with computers."
-                    role="CTO"
-                    company="Digital Virtues GmbH"
-                    companyUrl="https://digitalvirtues.com/"
-                    img="Sascha.png"
-                    homepage="https://www.saschagoebel.com/"
-                    linkedin="https://www.linkedin.com/in/saschagoebel/"
-                />
-            </div>
-        </div>
-    </section>
-
     <section id="references">
+        <div class="test-bg-blend"></div>
         <div class="container">
             <h2>Testimonials</h2>
             <div class="sliders">
@@ -288,8 +293,12 @@
             </div>
         </div>
     </section>
+    <!-- <div class="blendimage">
+            <img src={blendImage} alt="" srcset="" />
+        </div> -->
+</div>
 
-    <!-- <section id="timeline">
+<!-- <section id="timeline">
         <div class="container">
             <h2>News / Timeline</h2>
             {#each data.news as news}
@@ -302,7 +311,6 @@
             {/each}
         </div>
     </section> -->
-</div>
 <section id="timeline">
     <div class="container">
         <h2>News / Timeline</h2>
@@ -327,6 +335,12 @@
             padding: 6rem 0;
         }
 
+        &#mission,
+        &#vision,
+        &#values {
+            background-color: #000627;
+        }
+
         &#vision,
         &#values,
         &#pillars,
@@ -344,7 +358,7 @@
     }
     .hero-section {
         width: 100%;
-        height: 100dvh;
+        height: 110vh;
         position: relative;
 
         nav {
@@ -353,7 +367,6 @@
             justify-content: center;
             align-items: center;
             position: absolute;
-
             width: 100%;
             z-index: 1000;
 
@@ -438,6 +451,21 @@
                 width: 100%;
                 height: 100%;
                 background-color: rgb(from var(--color-blue-dark) r g b / 0.25);
+            }
+
+            .blend-bg {
+                position: absolute;
+                bottom: 0;
+                background-image: url('$lib/assets/img/res/Verlauf.jpg');
+                background-position: top;
+                background-repeat: no-repeat;
+                background-blend-mode: lighten;
+                background-color: #000627;
+                background: linear-gradient(1800deg, #000627 0%, rgba(255, 255, 255, 0) 100%);
+                left: 0;
+                width: 100%;
+                height: 40%;
+                opacity: 1;
             }
             .logo-dv {
                 width: 200px;
@@ -564,6 +592,27 @@
 
     /* Pillars Section */
     section#pillars {
+        // position: relative;
+
+        .pillar-bg-blend {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            height: 100%;
+            background: #000627;
+            background: linear-gradient(
+                0deg,
+                rgba(0, 6, 39, 0) 0%,
+                rgba(0, 6, 39, 1) 34%,
+                rgba(0, 6, 39, 1) 67%,
+                rgba(0, 67, 255, 1) 100%
+            );
+        }
+        .container{
+            position: relative;
+            z-index: 2;
+        }
         .pillars {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -674,9 +723,20 @@
 
     /* Team Section */
     section#team {
+        background-color: rgb(0 67 255);
         display: flex;
         justify-content: center;
         align-items: center;
+        position: relative;
+
+        .team-bg-blend {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 50%;
+            background: #000627;
+            background: linear-gradient(180deg, rgba(0, 6, 39, 1) 0%, rgba(0, 67, 255, 1) 100%);
+        }
 
         .team-info {
             display: flex;
@@ -699,6 +759,16 @@
 
     /* References Section */
     section#references {
+        position: relative;
+
+        .test-bg-blend {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 50%;
+            background: #000627;
+            background: linear-gradient(0deg, rgba(0, 6, 39, 1) 0%, rgba(0, 67, 255, 0) 100%);
+        }
         .container {
             padding: 6rem 0rem;
             max-width: 100%;
@@ -714,7 +784,7 @@
 
             .testimonials {
                 display: grid;
-                grid-template-columns: repeat(3, 80%);
+                grid-template-columns: repeat(3, 70%);
                 width: 100%;
                 gap: 24px;
                 padding: 0 3rem;
@@ -722,10 +792,8 @@
                 scrollbar-width: none;
                 @media only screen and (max-width: 768px) {
                     padding: 0 1.5rem;
-                grid-template-columns: repeat(1, 100%);
-
-            
-        }   
+                    grid-template-columns: repeat(1, 100%);
+                }
                 // background-color: rgb(from var(--color-blue-dark) r g b / 0.5);
 
                 // @media (min-width: 768px) {
@@ -736,10 +804,6 @@
                 //     justify-content: center;
                 //     align-items: stretch;
                 // }
-            }
-
-            h2 {
-                margin-bottom: 2rem;
             }
         }
     }
@@ -759,276 +823,306 @@
         }
     }
 
+    //Background
+
+    .main-content {
+        background-image: url('$lib/assets/img/res/imageBlend.jpg');
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+    }
+
+    // .image-blend {
+    //     height: 100%;
+    //     width: 2600px;
+
+    //     position: relative;
+    //     // overflow: hidden;
+
+    //     .blendimage {
+    //         width: 100%;
+    //         position: absolute;
+    //         bottom: 0;
+    //         z-index: -3;
+    //         // right: 50%;
+
+    //         img {
+    //             width: 100%;
+    //         }
+    //     }
+    // }
+
     /* Background Animation */
-    @property --a {
-        syntax: '<percentage>';
-        inherits: false;
-        initial-value: 0%;
-    }
+    // @property --a {
+    //     syntax: '<percentage>';
+    //     inherits: false;
+    //     initial-value: 0%;
+    // }
 
-    @property --b {
-        syntax: '<percentage>';
-        inherits: false;
-        initial-value: 0%;
-    }
+    // @property --b {
+    //     syntax: '<percentage>';
+    //     inherits: false;
+    //     initial-value: 0%;
+    // }
 
-    @property --c {
-        syntax: '<percentage>';
-        inherits: false;
-        initial-value: 0%;
-    }
+    // @property --c {
+    //     syntax: '<percentage>';
+    //     inherits: false;
+    //     initial-value: 0%;
+    // }
 
-    @property --d {
-        syntax: '<percentage>';
-        inherits: false;
-        initial-value: 0%;
-    }
+    // @property --d {
+    //     syntax: '<percentage>';
+    //     inherits: false;
+    //     initial-value: 0%;
+    // }
 
-    @property --e {
-        syntax: '<percentage>';
-        inherits: false;
-        initial-value: 0%;
-    }
+    // @property --e {
+    //     syntax: '<percentage>';
+    //     inherits: false;
+    //     initial-value: 0%;
+    // }
 
-    @property --f {
-        syntax: '<percentage>';
-        inherits: false;
-        initial-value: 0%;
-    }
+    // @property --f {
+    //     syntax: '<percentage>';
+    //     inherits: false;
+    //     initial-value: 0%;
+    // }
 
-    @property --g {
-        syntax: '<percentage>';
-        inherits: false;
-        initial-value: 0%;
-    }
+    // @property --g {
+    //     syntax: '<percentage>';
+    //     inherits: false;
+    //     initial-value: 0%;
+    // }
 
-    @property --h {
-        syntax: '<percentage>';
-        inherits: false;
-        initial-value: 0%;
-    }
+    // @property --h {
+    //     syntax: '<percentage>';
+    //     inherits: false;
+    //     initial-value: 0%;
+    // }
 
-    @property --i {
-        syntax: '<angle>';
-        inherits: false;
-        initial-value: 20deg;
-    }
+    // @property --i {
+    //     syntax: '<angle>';
+    //     inherits: false;
+    //     initial-value: 20deg;
+    // }
 
-    :global(main) {
-        background-color: var(--color-blue-light);
-    }
+    // :global(main) {
+    //     background-color: var(--color-blue-light);
+    // }
 
-    :global(main > .main-content) {
-        --a: 31%;
-        --b: -11%;
-        --c: -24%;
-        --d: 29%;
-        --e: 49%;
-        --f: 102%;
-        --g: 56%;
-        --h: 112%;
-        --i: 35deg;
+    // :global(main > .main-content) {
+    //     --a: 31%;
+    //     --b: -11%;
+    //     --c: -24%;
+    //     --d: 29%;
+    //     --e: 49%;
+    //     --f: 102%;
+    //     --g: 56%;
+    //     --h: 112%;
+    //     --i: 35deg;
 
-        background-color: var(--color-blue-dark);
+    //     background-color: var(--color-blue-dark);
 
-        background:
-            radial-gradient(
-                ellipse at var(--a) var(--b),
-                rgb(from var(--color-cyan) r g b / 0.5),
-                transparent 45%,
-                transparent
-            ),
-            radial-gradient(
-                ellipse at var(--c) var(--d),
-                rgb(from var(--color-blue-dark) r g b / 0.75),
-                transparent 75%,
-                transparent
-            ),
-            radial-gradient(
-                ellipse at var(--e) var(--f),
-                rgb(from var(--color-blue-light) r g b / 0.75),
-                transparent 55%,
-                transparent
-            ),
-            radial-gradient(
-                ellipse at var(--g) var(--h),
-                rgb(from var(--color-white) r g b / 0.25),
-                transparent 65%,
-                transparent
-            ),
-            linear-gradient(var(--i), var(--color-blue-dark), var(--color-blue-light));
+    //     background:
+    //         radial-gradient(
+    //             ellipse at var(--a) var(--b),
+    //             rgb(from var(--color-cyan) r g b / 0.5),
+    //             transparent 45%,
+    //             transparent
+    //         ),
+    //         radial-gradient(
+    //             ellipse at var(--c) var(--d),
+    //             rgb(from var(--color-blue-dark) r g b / 0.75),
+    //             transparent 75%,
+    //             transparent
+    //         ),
+    //         radial-gradient(
+    //             ellipse at var(--e) var(--f),
+    //             rgb(from var(--color-blue-light) r g b / 0.75),
+    //             transparent 55%,
+    //             transparent
+    //         ),
+    //         radial-gradient(
+    //             ellipse at var(--g) var(--h),
+    //             rgb(from var(--color-white) r g b / 0.25),
+    //             transparent 65%,
+    //             transparent
+    //         ),
+    //         linear-gradient(var(--i), var(--color-blue-dark), var(--color-blue-light));
 
-        animation:
-            a 26s linear infinite alternate,
-            b 24s linear infinite alternate,
-            c 42s linear infinite alternate,
-            d 23s linear infinite alternate,
-            e 22s linear infinite alternate,
-            f 44s linear infinite alternate,
-            g 28s linear infinite alternate,
-            h 39s linear infinite alternate,
-            i 20s linear infinite alternate;
-    }
+    //     animation:
+    //         a 26s linear infinite alternate,
+    //         b 24s linear infinite alternate,
+    //         c 42s linear infinite alternate,
+    //         d 23s linear infinite alternate,
+    //         e 22s linear infinite alternate,
+    //         f 44s linear infinite alternate,
+    //         g 28s linear infinite alternate,
+    //         h 39s linear infinite alternate,
+    //         i 20s linear infinite alternate;
+    // }
 
-    @keyframes a {
-        from {
-            --a: 31%;
-        }
-        25% {
-            --a: 36%;
-        }
-        50% {
-            --a: 22%;
-        }
-        75% {
-            --a: 35%;
-        }
-        to {
-            --a: 92%;
-        }
-    }
+    // @keyframes a {
+    //     from {
+    //         --a: 31%;
+    //     }
+    //     25% {
+    //         --a: 36%;
+    //     }
+    //     50% {
+    //         --a: 22%;
+    //     }
+    //     75% {
+    //         --a: 35%;
+    //     }
+    //     to {
+    //         --a: 92%;
+    //     }
+    // }
 
-    @keyframes b {
-        from {
-            --b: -11%;
-        }
-        25% {
-            --b: 107%;
-        }
-        50% {
-            --b: 48%;
-        }
-        75% {
-            --b: 122%;
-        }
-        to {
-            --b: 5%;
-        }
-    }
+    // @keyframes b {
+    //     from {
+    //         --b: -11%;
+    //     }
+    //     25% {
+    //         --b: 107%;
+    //     }
+    //     50% {
+    //         --b: 48%;
+    //     }
+    //     75% {
+    //         --b: 122%;
+    //     }
+    //     to {
+    //         --b: 5%;
+    //     }
+    // }
 
-    @keyframes c {
-        from {
-            --c: -24%;
-        }
-        25% {
-            --c: 65%;
-        }
-        50% {
-            --c: 17%;
-        }
-        75% {
-            --c: 22%;
-        }
-        to {
-            --c: 34%;
-        }
-    }
+    // @keyframes c {
+    //     from {
+    //         --c: -24%;
+    //     }
+    //     25% {
+    //         --c: 65%;
+    //     }
+    //     50% {
+    //         --c: 17%;
+    //     }
+    //     75% {
+    //         --c: 22%;
+    //     }
+    //     to {
+    //         --c: 34%;
+    //     }
+    // }
 
-    @keyframes d {
-        from {
-            --d: 29%;
-        }
-        25% {
-            --d: 52%;
-        }
-        50% {
-            --d: -21%;
-        }
-        75% {
-            --d: 92%;
-        }
-        to {
-            --d: 61%;
-        }
-    }
+    // @keyframes d {
+    //     from {
+    //         --d: 29%;
+    //     }
+    //     25% {
+    //         --d: 52%;
+    //     }
+    //     50% {
+    //         --d: -21%;
+    //     }
+    //     75% {
+    //         --d: 92%;
+    //     }
+    //     to {
+    //         --d: 61%;
+    //     }
+    // }
 
-    @keyframes e {
-        from {
-            --e: 49%;
-        }
-        25% {
-            --e: -20%;
-        }
-        50% {
-            --e: 38%;
-        }
-        75% {
-            --e: -3%;
-        }
-        to {
-            --e: 111%;
-        }
-    }
+    // @keyframes e {
+    //     from {
+    //         --e: 49%;
+    //     }
+    //     25% {
+    //         --e: -20%;
+    //     }
+    //     50% {
+    //         --e: 38%;
+    //     }
+    //     75% {
+    //         --e: -3%;
+    //     }
+    //     to {
+    //         --e: 111%;
+    //     }
+    // }
 
-    @keyframes f {
-        from {
-            --f: 102%;
-        }
-        25% {
-            --f: 30%;
-        }
-        50% {
-            --f: 100%;
-        }
-        75% {
-            --f: 111%;
-        }
-        to {
-            --f: 72%;
-        }
-    }
+    // @keyframes f {
+    //     from {
+    //         --f: 102%;
+    //     }
+    //     25% {
+    //         --f: 30%;
+    //     }
+    //     50% {
+    //         --f: 100%;
+    //     }
+    //     75% {
+    //         --f: 111%;
+    //     }
+    //     to {
+    //         --f: 72%;
+    //     }
+    // }
 
-    @keyframes g {
-        from {
-            --g: 56%;
-        }
-        25% {
-            --g: 98%;
-        }
-        50% {
-            --g: 105%;
-        }
-        75% {
-            --g: 76%;
-        }
-        to {
-            --g: 14%;
-        }
-    }
+    // @keyframes g {
+    //     from {
+    //         --g: 56%;
+    //     }
+    //     25% {
+    //         --g: 98%;
+    //     }
+    //     50% {
+    //         --g: 105%;
+    //     }
+    //     75% {
+    //         --g: 76%;
+    //     }
+    //     to {
+    //         --g: 14%;
+    //     }
+    // }
 
-    @keyframes h {
-        from {
-            --h: 112%;
-        }
-        25% {
-            --h: 98%;
-        }
-        50% {
-            --h: 32%;
-        }
-        75% {
-            --h: -25%;
-        }
-        to {
-            --h: 64%;
-        }
-    }
+    // @keyframes h {
+    //     from {
+    //         --h: 112%;
+    //     }
+    //     25% {
+    //         --h: 98%;
+    //     }
+    //     50% {
+    //         --h: 32%;
+    //     }
+    //     75% {
+    //         --h: -25%;
+    //     }
+    //     to {
+    //         --h: 64%;
+    //     }
+    // }
 
-    @keyframes i {
-        from {
-            --i: 35deg;
-        }
-        25% {
-            --i: 211deg;
-        }
-        50% {
-            --i: 151deg;
-        }
-        75% {
-            --i: 62deg;
-        }
-        to {
-            --i: 186deg;
-        }
-    }
+    // @keyframes i {
+    //     from {
+    //         --i: 35deg;
+    //     }
+    //     25% {
+    //         --i: 211deg;
+    //     }
+    //     50% {
+    //         --i: 151deg;
+    //     }
+    //     75% {
+    //         --i: 62deg;
+    //     }
+    //     to {
+    //         --i: 186deg;
+    //     }
+    // }
 </style>

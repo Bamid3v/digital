@@ -51,7 +51,7 @@
         margin-bottom: 3rem;
         display: flex;
         justify-content: center;
-        align-items: start;
+        align-items: center;
         gap: 24px;
         width: 100%;
         padding: 1rem;
@@ -60,9 +60,22 @@
 
         @media only screen and (max-width: 768px) {
             flex-direction: column;
+            align-items: center;
             margin-bottom: 0rem;
         }   
 
+        figcaption{
+            picture{
+                img,.photo{
+                width: 16rem;
+                height: auto;
+                border-radius: 50%;
+                margin: 1rem auto;
+                
+            }
+            }
+            
+        }
         .content {
             display: flex;
             flex-direction: column;
@@ -74,6 +87,7 @@
             @media only screen and (max-width: 768px) {
                 gap:4px;
                 width: 100%;
+                align-items: center;
             
                 h3{
                     font-size: 1.75rem;
@@ -87,6 +101,7 @@
                 }
                 blockquote{
                     font-size: 1rem;
+                    text-align: center;
                 }
         }   
 
@@ -116,7 +131,7 @@
             position: relative;
             text-align: left;
             font-size: 1.25rem;
-            max-width: 900px;
+            max-width: 600px;
             overflow-wrap: break-word;
 
             /* &::before {
