@@ -45,7 +45,6 @@
 </figure>
 
 <style lang="scss">
-
     .testimonial {
         text-align: center;
         margin-bottom: 3rem;
@@ -62,19 +61,20 @@
             flex-direction: column;
             align-items: center;
             margin-bottom: 0rem;
-        }   
+            gap: 2px;
 
-        figcaption{
-            picture{
-                img,.photo{
-                width: 16rem;
-                height: auto;
-                border-radius: 50%;
-                margin: 1rem auto;
-                
+        }
+
+        figcaption {
+            picture {
+                img,
+                .photo {
+                    width: 16rem;
+                    height: auto;
+                    border-radius: 50%;
+                    margin: 1rem auto;
+                }
             }
-            }
-            
         }
         .content {
             display: flex;
@@ -84,26 +84,7 @@
             gap: 12px;
             max-width: 900px;
 
-            @media only screen and (max-width: 768px) {
-                gap:4px;
-                width: 100%;
-                align-items: center;
             
-                h3{
-                    font-size: 1.75rem;
-                margin: 0;
-
-                }
-                h4{
-                    font-size:1.25rem ;
-                margin-bottom: 0.2rem;
-
-                }
-                blockquote{
-                    font-size: 1rem;
-                    text-align: center;
-                }
-        }   
 
             h3 {
                 font-weight: 700;
@@ -123,6 +104,28 @@
                 line-height: 14.4pt;
                 margin: 0;
                 color: var(--color-text-secondary);
+            }
+
+            @media only screen and (max-width: 768px) {
+                gap: 6px;
+                width: 100%;
+                align-items: center;
+
+                h3 {
+                    font-size: 1.75rem;
+                    margin: 0;
+                    padding: 0.5rem 0;
+                }
+                h4 {
+                    font-size: 1.25rem;
+                    margin-bottom: 0.2rem;
+            text-align: center;
+
+                }
+                blockquote {
+                    font-size: 1rem;
+                    text-align: center;
+                }
             }
         }
 

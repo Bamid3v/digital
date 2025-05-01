@@ -98,22 +98,37 @@
         }
 
         .person-info {
+
+            @media only screen and (max-width: 768px){}
             h3 {
                 font-weight: 700;
                 font-size: 2.25rem;
                 margin-bottom: 0.5rem;
+                @media only screen and (max-width: 768px) {
+                    font-size: 2rem;
+                    line-height: 2rem;
+                    padding: 0.5rem 0;
+                }
             }
 
             h4 {
                 font-weight: 700;
                 font-size: 1.75rem;
                 margin-bottom: 0.75rem;
+
+                @media only screen and (max-width: 768px) {
+                    font-size: 1.5rem;
+                    line-height: 1.5rem;
+                }
             }
 
             p {
                 margin-bottom: 1.25rem;
                 line-height: 1.5rem;
                 max-width: 700px;
+                @media only screen and (max-width: 768px) {
+                    font-size: 1rem;
+                }
             }
             .links {
                 display: flex;
@@ -122,6 +137,7 @@
                 gap: 1rem;
                 @media only screen and (max-width: 520px) {
                     justify-content: center;
+                    font-size: 1rem;
                 }
             }
             a {
@@ -130,6 +146,10 @@
                 font-weight: 700;
                 font-size: 1.5rem;
                 transition: all 0.5s ease-in-out;
+
+                @media only screen and (max-width: 768px) {
+                    font-size: 1.15rem;
+                }
 
                 cursor: pointer;
                 &:hover {
