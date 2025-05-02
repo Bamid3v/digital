@@ -2,6 +2,7 @@
     import { base } from '$app/paths';
     import '$lib/styles/layout.scss';
     import { page } from '$app/stores';
+    import { Linkedin } from '@lucide/svelte';
 
     import LogoText from '$lib/assets/logo-text-white.svg';
 
@@ -65,7 +66,7 @@
             <h2>Socials</h2>
             <ul>
                 <!-- <li><a href="{base}/">Twitter / X</a></li> -->
-                <li><a href="https://www.linkedin.com/company/digitalvirtues/" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/company/digitalvirtues/" target="_blank"><Linkedin /></a></li>
                 <!-- <li><a href="{base}/">Instagram</a></li>
                 <li><a href="{base}/">Facebook</a></li>
                 <li><a href="{base}/">TikTok</a></li>

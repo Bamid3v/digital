@@ -2,10 +2,7 @@
     import Person from '$lib/components/Person.svelte';
     import LogoDv from '$lib/assets/logo-dv-white.svg';
     import LogoText from '$lib/assets/logo-text-white.svg';
-
     import pillarImg from '$lib/assets/img/res/stars-bg.jpg';
-    // import dBlueLight from '$lib/assets/logo-d-blue-light.svg';
-    // import vBlueLight from '$lib/assets/logo-v-blue-light.svg';
 
     import { base } from '$app/paths';
     let { data } = $props();
@@ -299,7 +296,7 @@
         <div class="timeline-container">
             {#each data.news as news}
                 <div class="timeline-box">
-                    <span class="ball"> </span>
+                    <span class="ball"> <span class="inner-ball"></span> </span>
                     <div class="timeline-item">
                         <h2>{news[0]}</h2>
                         {#each news[1] as item}
@@ -312,13 +309,11 @@
     </div>
 </section>
 
-
 <style lang="scss">
     /* Sections */
 
     section {
         vertical-align: middle;
-        // padding: 6rem 0;
         position: relative;
         color: var(--color-white);
 
@@ -457,10 +452,6 @@
             .blend-bg {
                 position: absolute;
                 bottom: 0;
-                background-image: url('$lib/assets/img/res/Verlauf.jpg');
-                background-position: top;
-                background-repeat: no-repeat;
-                background-blend-mode: lighten;
                 background-color: #000627;
                 background: linear-gradient(1800deg, #000627 0%, rgba(255, 255, 255, 0) 100%);
                 left: 0;
@@ -593,8 +584,6 @@
 
     /* Pillars Section */
     section#pillars {
-        // position: relative;
-
         .pillar-bg-blend {
             position: absolute;
             top: 0;
@@ -641,8 +630,6 @@
                 align-items: center;
                 color: #f8f8f8;
                 transition: all 0.5s ease-in-out;
-                // max-width: 450px;
-                // border: 3px solid #00ffff;
                 list-style-image: url('$lib/assets/logo-dv-white.svg');
                 &:hover {
                     background-color: #00ffff;
@@ -707,6 +694,7 @@
 
                 ul li {
                     margin-left: 0.75em;
+                    margin-bottom: 0.5rem;
                     padding-left: 0.25em;
                 }
             }
@@ -717,7 +705,6 @@
                 justify-content: center;
                 align-items: start;
                 border-radius: 1rem;
-                // flex: 1 1 95%;
                 width: 100%;
                 height: 100%;
 
@@ -761,7 +748,6 @@
             justify-content: center;
             align-items: center;
 
-            // 717px
             @media (min-width: 768px) {
                 max-width: var(--breakpoint-desktop);
                 margin: auto;
@@ -810,16 +796,6 @@
                     padding: 0 0.7rem;
                     grid-template-columns: repeat(1, 100%);
                 }
-                // background-color: rgb(from var(--color-blue-dark) r g b / 0.5);
-
-                // @media (min-width: 768px) {
-                //     max-width: var(--breakpoint-desktop);
-                //     margin: auto;
-                //     flex-direction: row;
-                //     flex-wrap: wrap;
-                //     justify-content: center;
-                //     align-items: stretch;
-                // }
             }
         }
     }
@@ -844,8 +820,8 @@
                 .timeline-box:nth-child(even) {
                     width: 500px;
                     border-bottom: 0px;
-                    border-top: 2px solid #00ffff;
-                    border-left: 3px solid #00ffff;
+                    border-top: 2px solid rgb(0 67 255);
+                    border-left: 3px solid rgb(0 67 255);
                     border-right: 0px;
                     border-style: solid;
                     margin-right: 1px;
@@ -858,7 +834,7 @@
                             padding: 25px 0 0 0;
                         }
                     }
-                    span {
+                    .ball {
                         left: -22px;
                         top: -4%;
                         @media only screen and (max-width: 810px) {
@@ -868,16 +844,16 @@
                         }
                     }
                     @media only screen and (max-width: 1000px) {
-                    width: 400px;
-                }
+                        width: 400px;
+                    }
 
                     @media only screen and (max-width: 810px) {
-                    width: 100%;
+                        width: 100%;
 
                         align-self: flex-start;
                         padding-left: 0px;
-                        border-top: 3px solid #00ffff;
-                        border-right: 3px solid #00ffff;
+                        border-top: 3px solid rgb(0 67 255);
+                        border-right: 3px solid rgb(0 67 255);
                         border-left: 0px solid rgb(0 67 255);
                     }
                 }
@@ -895,18 +871,28 @@
                     height: 500px;
                     position: relative;
                     border-bottom: 0px;
-                    border-top: 2px solid #00ffff;
+                    border-top: 2px solid rgb(0 67 255);
                     border-left: 0;
-                    border-right: 3px solid #00ffff;
-                    span {
+                    border-right: 3px solid rgb(0 67 255);
+                    .ball {
                         right: -22px;
                         top: -4%;
                         width: 40px;
                         height: 40px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                         border-radius: 100%;
                         position: absolute;
-                        background-color: #00ffff;
+                        background-color: rgb(0 67 255);
                         border: 8px solid #000627;
+
+                        .inner-ball {
+                            width: 20px;
+                            height: 20px;
+                            border-radius: 100%;
+                            background-color: #000627;
+                        }
 
                         @media only screen and (max-width: 810px) {
                             border: 4px solid #000627;
@@ -935,10 +921,6 @@
                             font-size: 48px;
                             margin-bottom: 0;
                         }
-                        h3 {
-                            font-size: 32px;
-                            color: #00ffff;
-                        }
                     }
                 }
             }
@@ -949,304 +931,10 @@
     }
 
     //Background
-
     .main-content {
         background-image: url('$lib/assets/img/res/imageBlend.jpg');
         background-position: bottom;
         background-repeat: no-repeat;
         background-size: cover;
     }
-
-    // .image-blend {
-    //     height: 100%;
-    //     width: 2600px;
-
-    //     position: relative;
-    //     // overflow: hidden;
-
-    //     .blendimage {
-    //         width: 100%;
-    //         position: absolute;
-    //         bottom: 0;
-    //         z-index: -3;
-    //         // right: 50%;
-
-    //         img {
-    //             width: 100%;
-    //         }
-    //     }
-    // }
-
-    /* Background Animation */
-    // @property --a {
-    //     syntax: '<percentage>';
-    //     inherits: false;
-    //     initial-value: 0%;
-    // }
-
-    // @property --b {
-    //     syntax: '<percentage>';
-    //     inherits: false;
-    //     initial-value: 0%;
-    // }
-
-    // @property --c {
-    //     syntax: '<percentage>';
-    //     inherits: false;
-    //     initial-value: 0%;
-    // }
-
-    // @property --d {
-    //     syntax: '<percentage>';
-    //     inherits: false;
-    //     initial-value: 0%;
-    // }
-
-    // @property --e {
-    //     syntax: '<percentage>';
-    //     inherits: false;
-    //     initial-value: 0%;
-    // }
-
-    // @property --f {
-    //     syntax: '<percentage>';
-    //     inherits: false;
-    //     initial-value: 0%;
-    // }
-
-    // @property --g {
-    //     syntax: '<percentage>';
-    //     inherits: false;
-    //     initial-value: 0%;
-    // }
-
-    // @property --h {
-    //     syntax: '<percentage>';
-    //     inherits: false;
-    //     initial-value: 0%;
-    // }
-
-    // @property --i {
-    //     syntax: '<angle>';
-    //     inherits: false;
-    //     initial-value: 20deg;
-    // }
-
-    // :global(main) {
-    //     background-color: var(--color-blue-light);
-    // }
-
-    // :global(main > .main-content) {
-    //     --a: 31%;
-    //     --b: -11%;
-    //     --c: -24%;
-    //     --d: 29%;
-    //     --e: 49%;
-    //     --f: 102%;
-    //     --g: 56%;
-    //     --h: 112%;
-    //     --i: 35deg;
-
-    //     background-color: var(--color-blue-dark);
-
-    //     background:
-    //         radial-gradient(
-    //             ellipse at var(--a) var(--b),
-    //             rgb(from var(--color-cyan) r g b / 0.5),
-    //             transparent 45%,
-    //             transparent
-    //         ),
-    //         radial-gradient(
-    //             ellipse at var(--c) var(--d),
-    //             rgb(from var(--color-blue-dark) r g b / 0.75),
-    //             transparent 75%,
-    //             transparent
-    //         ),
-    //         radial-gradient(
-    //             ellipse at var(--e) var(--f),
-    //             rgb(from var(--color-blue-light) r g b / 0.75),
-    //             transparent 55%,
-    //             transparent
-    //         ),
-    //         radial-gradient(
-    //             ellipse at var(--g) var(--h),
-    //             rgb(from var(--color-white) r g b / 0.25),
-    //             transparent 65%,
-    //             transparent
-    //         ),
-    //         linear-gradient(var(--i), var(--color-blue-dark), var(--color-blue-light));
-
-    //     animation:
-    //         a 26s linear infinite alternate,
-    //         b 24s linear infinite alternate,
-    //         c 42s linear infinite alternate,
-    //         d 23s linear infinite alternate,
-    //         e 22s linear infinite alternate,
-    //         f 44s linear infinite alternate,
-    //         g 28s linear infinite alternate,
-    //         h 39s linear infinite alternate,
-    //         i 20s linear infinite alternate;
-    // }
-
-    // @keyframes a {
-    //     from {
-    //         --a: 31%;
-    //     }
-    //     25% {
-    //         --a: 36%;
-    //     }
-    //     50% {
-    //         --a: 22%;
-    //     }
-    //     75% {
-    //         --a: 35%;
-    //     }
-    //     to {
-    //         --a: 92%;
-    //     }
-    // }
-
-    // @keyframes b {
-    //     from {
-    //         --b: -11%;
-    //     }
-    //     25% {
-    //         --b: 107%;
-    //     }
-    //     50% {
-    //         --b: 48%;
-    //     }
-    //     75% {
-    //         --b: 122%;
-    //     }
-    //     to {
-    //         --b: 5%;
-    //     }
-    // }
-
-    // @keyframes c {
-    //     from {
-    //         --c: -24%;
-    //     }
-    //     25% {
-    //         --c: 65%;
-    //     }
-    //     50% {
-    //         --c: 17%;
-    //     }
-    //     75% {
-    //         --c: 22%;
-    //     }
-    //     to {
-    //         --c: 34%;
-    //     }
-    // }
-
-    // @keyframes d {
-    //     from {
-    //         --d: 29%;
-    //     }
-    //     25% {
-    //         --d: 52%;
-    //     }
-    //     50% {
-    //         --d: -21%;
-    //     }
-    //     75% {
-    //         --d: 92%;
-    //     }
-    //     to {
-    //         --d: 61%;
-    //     }
-    // }
-
-    // @keyframes e {
-    //     from {
-    //         --e: 49%;
-    //     }
-    //     25% {
-    //         --e: -20%;
-    //     }
-    //     50% {
-    //         --e: 38%;
-    //     }
-    //     75% {
-    //         --e: -3%;
-    //     }
-    //     to {
-    //         --e: 111%;
-    //     }
-    // }
-
-    // @keyframes f {
-    //     from {
-    //         --f: 102%;
-    //     }
-    //     25% {
-    //         --f: 30%;
-    //     }
-    //     50% {
-    //         --f: 100%;
-    //     }
-    //     75% {
-    //         --f: 111%;
-    //     }
-    //     to {
-    //         --f: 72%;
-    //     }
-    // }
-
-    // @keyframes g {
-    //     from {
-    //         --g: 56%;
-    //     }
-    //     25% {
-    //         --g: 98%;
-    //     }
-    //     50% {
-    //         --g: 105%;
-    //     }
-    //     75% {
-    //         --g: 76%;
-    //     }
-    //     to {
-    //         --g: 14%;
-    //     }
-    // }
-
-    // @keyframes h {
-    //     from {
-    //         --h: 112%;
-    //     }
-    //     25% {
-    //         --h: 98%;
-    //     }
-    //     50% {
-    //         --h: 32%;
-    //     }
-    //     75% {
-    //         --h: -25%;
-    //     }
-    //     to {
-    //         --h: 64%;
-    //     }
-    // }
-
-    // @keyframes i {
-    //     from {
-    //         --i: 35deg;
-    //     }
-    //     25% {
-    //         --i: 211deg;
-    //     }
-    //     50% {
-    //         --i: 151deg;
-    //     }
-    //     75% {
-    //         --i: 62deg;
-    //     }
-    //     to {
-    //         --i: 186deg;
-    //     }
-    // }
 </style>

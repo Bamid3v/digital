@@ -62,18 +62,15 @@
             align-items: center;
             margin-bottom: 0rem;
             gap: 2px;
-
         }
 
         figcaption {
-            picture {
-                img,
-                .photo {
-                    width: 16rem;
-                    height: auto;
-                    border-radius: 50%;
-                    margin: 1rem auto;
-                }
+            .photo
+             {
+                width: 16rem;
+                height: auto;
+                border-radius: 50%;
+                margin: 1rem auto;
             }
         }
         .content {
@@ -83,8 +80,6 @@
             align-items: start;
             gap: 12px;
             max-width: 900px;
-
-            
 
             h3 {
                 font-weight: 700;
@@ -97,13 +92,6 @@
                 font-size: 1.5rem;
                 margin-bottom: 0.75rem;
                 text-align: left;
-            }
-
-            p {
-                margin-bottom: 1rem;
-                line-height: 14.4pt;
-                margin: 0;
-                color: var(--color-text-secondary);
             }
 
             @media only screen and (max-width: 768px) {
@@ -119,8 +107,7 @@
                 h4 {
                     font-size: 1.25rem;
                     margin-bottom: 0.2rem;
-            text-align: center;
-
+                    text-align: center;
                 }
                 blockquote {
                     font-size: 1rem;
@@ -130,30 +117,11 @@
         }
 
         blockquote {
-            // max-width: var(--breakpoint-mobile);
             position: relative;
             text-align: left;
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             max-width: 600px;
             overflow-wrap: break-word;
-
-            /* &::before {
-                content: url('$lib/assets/logo-v-white.svg');
-                min-width: 1.25em;
-                min-height: 1.25em;
-                position: absolute;
-                left: 0;
-                bottom: 0;
-            }
-
-            &::after {
-                content: url('$lib/assets/logo-d-white.svg');
-                min-width: 1.25em;
-                min-height: 1.25em;
-                position: absolute;
-                right: 0;
-                top: 0;
-            } */
         }
 
         .photo {

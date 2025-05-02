@@ -1,7 +1,6 @@
 <script lang="ts">
     import { loadImageModule } from '$lib/loadImageModule';
     import JsonLd from '$lib/components/JSON-LD.svelte';
-    import dvBlueDark from '$lib/assets/logo-dv-blue-dark.svg';
 
     let { firstName, lastName, description, role, company, companyUrl, img, homepage, linkedin } =
         $props();
