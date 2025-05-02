@@ -10,19 +10,19 @@
 </script>
 
 <div class="person">
-    <div class="photo-container">
-        <JsonLd
-            type="Person"
-            data={{
-                familyName: lastName,
-                givenName: firstName,
-                name: `${firstName} ${lastName}`,
-                jobTitle: role,
-                url: homepage,
-                image: loadedImage?.img.src
-            }}
-        />
+    <JsonLd
+        type="Person"
+        data={{
+            familyName: lastName,
+            givenName: firstName,
+            name: `${firstName} ${lastName}`,
+            jobTitle: role,
+            url: homepage,
+            image: loadedImage?.img.src
+        }}
+    />
 
+    <div class="photo-container">   
         {#if loadedImage}
             <enhanced:img
                 src={loadedImage}
@@ -72,17 +72,16 @@
             padding: 0.5rem;
 
             &:nth-child(even) {
-            flex-direction: column;
-            gap: 6px;
-            justify-content: center;
-            text-align: center;
-            .person-info {
-                .links {
-                    justify-content: center;
+                flex-direction: column;
+                gap: 6px;
+                justify-content: center;
+                text-align: center;
+                .person-info {
+                    .links {
+                        justify-content: center;
+                    }
                 }
             }
-        }
-
         }
 
         .photo-container {
@@ -92,14 +91,14 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            // border-radius: 50%;  
+            // border-radius: 50%;
             overflow: hidden;
             background-color: var(--color-background);
         }
 
         .person-info {
-
-            @media only screen and (max-width: 768px){}
+            @media only screen and (max-width: 768px) {
+            }
             h3 {
                 font-weight: 700;
                 font-size: 2.25rem;
@@ -146,12 +145,12 @@
                 font-weight: 700;
                 font-size: 1.5rem;
                 transition: all 0.5s ease-in-out;
+                cursor: pointer;
 
                 @media only screen and (max-width: 768px) {
                     font-size: 1.15rem;
                 }
 
-                cursor: pointer;
                 &:hover {
                     text-decoration: underline;
                 }

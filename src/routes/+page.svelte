@@ -4,12 +4,10 @@
     import LogoText from '$lib/assets/logo-text-white.svg';
 
     import pillarImg from '$lib/assets/img/res/stars-bg.jpg';
-    import blendImage from '$lib/assets/img/res/imageBlend.jpg';
     // import dBlueLight from '$lib/assets/logo-d-blue-light.svg';
     // import vBlueLight from '$lib/assets/logo-v-blue-light.svg';
 
     import { base } from '$app/paths';
-    import Timeline from '$lib/components/Timeline.svelte';
     let { data } = $props();
 </script>
 
@@ -110,7 +108,7 @@
                     company="Digital Virtues GmbH"
                     companyUrl="https://digitalvirtues.com/"
                     img="peter.png"
-                    homepage="https://www.saschagoebel.com/"
+                    homepage="https://eulberg.info/"
                     linkedin="https://www.linkedin.com/in/eulberg/"
                 />
                 <Person
@@ -120,7 +118,7 @@
                     role="CTO"
                     company="Digital Virtues GmbH"
                     companyUrl="https://digitalvirtues.com/"
-                    img="Sascha.png"
+                    img="sascha.png"
                     homepage="https://www.saschagoebel.com/"
                     linkedin="https://www.linkedin.com/in/saschagoebel/"
                 />
@@ -293,30 +291,27 @@
             </div>
         </div>
     </section>
-    <!-- <div class="blendimage">
-            <img src={blendImage} alt="" srcset="" />
-        </div> -->
 </div>
 
-<!-- <section id="timeline">
-        <div class="container">
-            <h2>News / Timeline</h2>
-            {#each data.news as news}
-                <div class="timeline-year">
-                    <h3>{news[0]}</h3>
-                    {#each news[1] as item}
-                        <item.default id="news-item-{item.slug}" />
-                    {/each}
-                </div>
-            {/each}
-        </div>
-    </section> -->
 <section id="timeline">
     <div class="container">
         <h2>News / Timeline</h2>
-        <Timeline />
+        <div class="timeline-container">
+            {#each data.news as news}
+                <div class="timeline-box">
+                    <span class="ball"> </span>
+                    <div class="timeline-item">
+                        <h2>{news[0]}</h2>
+                        {#each news[1] as item}
+                            <item.default id="news-item-{item.slug}" />
+                        {/each}
+                    </div>
+                </div>
+            {/each}
+        </div>
     </div>
 </section>
+
 
 <style lang="scss">
     /* Sections */
@@ -615,7 +610,7 @@
                 rgba(0, 67, 255, 1) 100%
             );
         }
-        .container{
+        .container {
             position: relative;
             z-index: 2;
         }
@@ -680,7 +675,7 @@
 
                     @media only screen and (max-width: 768px) {
                         width: 72px;
-                    height: 72px;
+                        height: 72px;
                     }
                 }
 
@@ -754,7 +749,7 @@
             background: linear-gradient(180deg, rgba(0, 6, 39, 1) 0%, rgba(0, 67, 255, 1) 100%);
         }
 
-        .container{
+        .container {
             z-index: 2;
         }
 
@@ -810,6 +805,7 @@
                 padding: 0 3rem;
                 overflow: auto;
                 scrollbar-width: none;
+
                 @media only screen and (max-width: 768px) {
                     padding: 0 0.7rem;
                     grid-template-columns: repeat(1, 100%);
@@ -837,6 +833,115 @@
             align-items: center;
             justify-content: center;
             padding: 5rem 0;
+
+            .timeline-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                width: 1000px;
+
+                .timeline-box:nth-child(even) {
+                    width: 500px;
+                    border-bottom: 0px;
+                    border-top: 2px solid #00ffff;
+                    border-left: 3px solid #00ffff;
+                    border-right: 0px;
+                    border-style: solid;
+                    margin-right: 1px;
+                    align-self: flex-end;
+                    padding-left: 30px;
+
+                    .timeline-item {
+                        padding: 25px 0 25px 25px;
+                        @media only screen and (max-width: 810px) {
+                            padding: 25px 0 0 0;
+                        }
+                    }
+                    span {
+                        left: -22px;
+                        top: -4%;
+                        @media only screen and (max-width: 810px) {
+                            right: -22px;
+                            top: -4%;
+                            left: unset;
+                        }
+                    }
+                    @media only screen and (max-width: 1000px) {
+                    width: 400px;
+                }
+
+                    @media only screen and (max-width: 810px) {
+                    width: 100%;
+
+                        align-self: flex-start;
+                        padding-left: 0px;
+                        border-top: 3px solid #00ffff;
+                        border-right: 3px solid #00ffff;
+                        border-left: 0px solid rgb(0 67 255);
+                    }
+                }
+
+                @media only screen and (max-width: 1000px) {
+                    width: 800px;
+                }
+                @media only screen and (max-width: 810px) {
+                    width: 100%;
+                    padding: 0 1rem;
+                }
+                .timeline-box {
+                    // width: 400px;
+                    max-width: 500px;
+                    height: 500px;
+                    position: relative;
+                    border-bottom: 0px;
+                    border-top: 2px solid #00ffff;
+                    border-left: 0;
+                    border-right: 3px solid #00ffff;
+                    span {
+                        right: -22px;
+                        top: -4%;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 100%;
+                        position: absolute;
+                        background-color: #00ffff;
+                        border: 8px solid #000627;
+
+                        @media only screen and (max-width: 810px) {
+                            border: 4px solid #000627;
+                            width: 30px;
+                            height: 30px;
+                            display: none;
+                        }
+                    }
+                    @media only screen and (max-width: 1000px) {
+                        width: 400px;
+                    }
+                    @media only screen and (max-width: 810px) {
+                        width: 100%;
+                    }
+
+                    /* Target specifically the second box */
+
+                    .timeline-item {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 20px;
+                        align-items: start;
+                        padding: 25px 30px 30px 25px;
+
+                        h2 {
+                            font-size: 48px;
+                            margin-bottom: 0;
+                        }
+                        h3 {
+                            font-size: 32px;
+                            color: #00ffff;
+                        }
+                    }
+                }
+            }
         }
         h2 {
             margin-bottom: 2em;
@@ -850,7 +955,6 @@
         background-position: bottom;
         background-repeat: no-repeat;
         background-size: cover;
-
     }
 
     // .image-blend {

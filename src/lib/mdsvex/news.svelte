@@ -22,7 +22,7 @@
         }}
     />
 
-    <h4>{new Date(date).toISOString().slice(0, 10)}</h4>
+    <h3>{new Date(date).toISOString().slice(0, 10)}</h3>
     {@render children?.()}
     <!-- Tags: {tags
         ?.split(',')
@@ -39,6 +39,11 @@
         &:last-child {
             border-bottom: none;
             margin-bottom: 0;
+        }
+        h3{
+            font-size: 32px;
+            color: #00ffff;
+            margin-bottom: 1rem;
         }
     }
 </style>
