@@ -3,9 +3,19 @@
     import LogoDv from '$lib/assets/logo-dv-white.svg';
     import LogoText from '$lib/assets/logo-text-white.svg';
     import pillarImg from '$lib/assets/img/res/stars-bg.jpg';
-
     import { base } from '$app/paths';
+
+
     let { data } = $props();
+
+
+        const testimonialIds = [
+            'testimonial-0040-giinco',
+            'testimonial-0050-smartloyalty',
+            'testimonial-0060-sgf'
+        ];
+
+        
 </script>
 
 <section class="hero-section">
@@ -279,10 +289,15 @@
         <div class="test-bg-blend"></div>
         <div class="container">
             <h2>Testimonials</h2>
-            <div class="sliders">
-                <div class="testimonials">
+            <div class="slider-wrapper">
+                <div class="slider">
                     {#each data.testimonials as testimonial}
                         <testimonial.default id="testimonial-{testimonial.slug}" />
+                    {/each}
+                </div>
+                <div class="slider-nav">
+                    {#each testimonialIds as id}
+                        <a href="#{id}"></a>
                     {/each}
                 </div>
             </div>
@@ -774,18 +789,24 @@
             padding: 6rem 0rem;
             max-width: 100%;
         }
-        .sliders {
-            width: 100%;
+        .slider-wrapper {
             display: flex;
+            max-width: 1300px;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             overflow: hidden;
             position: relative;
             margin: 0 auto;
 
-            .testimonials {
-                display: grid;
-                grid-template-columns: repeat(3, 70%);
+            .slider {
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+                -ms-overflow-style: none; /* Hide scrollbar IE and Edge */
+                scrollbar-width: none; /* Hide scrollbar Firefox */
                 width: 100%;
                 gap: 24px;
                 padding: 0 3rem;
@@ -794,8 +815,29 @@
 
                 @media only screen and (max-width: 768px) {
                     padding: 0 0.7rem;
-                    grid-template-columns: repeat(1, 100%);
+                    flex-direction: column;
                 }
+            }
+            .slider-nav {
+                display: flex;
+                column-gap: 1rem;
+                position: absolute;
+                bottom: 0rem;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+                @media only screen and (max-width: 768px) {
+                    display: none;
+                }
+            }
+
+            .slider-nav a {
+                width: 0.75rem;
+                height: 0.75rem;
+                border-radius: 50%;
+                background-color: #00ffff;
+                opacity: 0.4;
+                transition: opacity ease 250ms;
             }
         }
     }

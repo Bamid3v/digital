@@ -46,9 +46,12 @@
 
 <style lang="scss">
     .testimonial {
+        flex: 1 0 90%;
+        scroll-snap-align: start;
         text-align: center;
-        margin-bottom: 3rem;
+        margin: 3rem 0;
         display: flex;
+        cursor: pointer;
         justify-content: center;
         align-items: center;
         gap: 24px;
@@ -65,12 +68,24 @@
         }
 
         figcaption {
-            .photo
-             {
+            .photo {
                 width: 16rem;
                 height: auto;
                 border-radius: 50%;
                 margin: 1rem auto;
+                @media only screen and (max-width: 768px) {
+                    width: 8rem;
+                    height: auto;
+                }
+            }
+
+            @media only screen and (max-width: 768px) {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 0rem;
+                gap: 2px;
             }
         }
         .content {
