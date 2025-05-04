@@ -35,15 +35,45 @@
     .timeline-item {
         margin-bottom: 2rem;
         text-wrap: pretty;
+        animation: item linear both;
+        animation-timeline: view();
+        animation-range: cover 25% cover 50%;
+        @media only screen and (max-width: 768px) {
+            animation: itemMob linear both;
+            animation-timeline: view();
+            animation-range: cover 15% cover 35%;
+        }
 
         &:last-child {
             border-bottom: none;
             margin-bottom: 0;
         }
-        h3{
+        h3 {
             font-size: 32px;
             color: #00ffff;
             margin-bottom: 1rem;
+        }
+    }
+
+    @keyframes item {
+        0% {
+            transform: translateX(100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0px);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes itemMob {
+        0% {
+            transform: translateX(50px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0px);
+            opacity: 1;
         }
     }
 </style>

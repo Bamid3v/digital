@@ -51,44 +51,60 @@
 
 <footer>
     <div class="container">
-        <div class="legal">
-            <h2>
-                Copyright &#169; {new Date().getFullYear()}
-                <a href="{base}/">Digital Virtues GmbH</a>
-            </h2>
-            <ul role="list">
-                <li><a href="mailto:contact@digitalvirtues.com">contact@digitalvirtues.com</a></li>
-                <li><a href="{base}/privacy-policy/">Privacy Policy</a></li>
-                <li><a href="{base}/legal-notice/">Legal Notice</a></li>
-            </ul>
+        <div class="footer-content">
+            <div class="legal">
+                <a href="{base}/">
+                    <img class="logo-text" src={LogoText} alt="Digital Virtues GmbH" /></a
+                >
+                <ul role="list">
+                    <li>
+                        <a href="mailto:contact@digitalvirtues.com">contact@digitalvirtues.com</a>
+                    </li>
+                    <li><a href="{base}/privacy-policy/">Privacy Policy</a></li>
+                    <li><a href="{base}/legal-notice/">Legal Notice</a></li>
+                </ul>
+            </div>
+            <div class="social">
+                <h2>Socials</h2>
+                <ul>
+                    <!-- <li><a href="{base}/">Twitter / X</a></li> -->
+                    <li>
+                        <a href="https://www.linkedin.com/company/digitalvirtues/" target="_blank"
+                            ><Linkedin /></a
+                        >
+                    </li>
+                    <!-- <li><a href="{base}/">Instagram</a></li>
+                    <li><a href="{base}/">Facebook</a></li>
+                    <li><a href="{base}/">TikTok</a></li>
+                    <li><a href="{base}/">YouTube</a></li>
+                    <li><a href="{base}/">Discord</a></li>
+                    <li><a href="{base}/">Telegram</a></li>
+                    <li><a href="{base}/">Matrix</a></li>
+                    <li><a href="{base}/">Mastodon</a></li> -->
+                </ul>
+            </div>
+            <div class="project">
+                <h2>Projects</h2>
+                <ul>
+                    <!-- <li><a href="{base}/">Proxy Manager</a></li>
+                    <li><a href="{base}/">Traffic Broker</a></li>
+                    <li><a href="{base}/">Knowledge Collector</a></li>
+                    <li><a href="{base}/">Creator Cartel</a></li>
+                    <li><a href="{base}/">Trading AI</a></li> -->
+                    <li>
+                        <a href="{base}/anyblock-analytics/" target="_blank"
+                            >Anyblock Analytics GmbH</a
+                        >
+                    </li>
+                    <li>
+                        <a href="https://www.dielichtmatrosen.de/" target="_blank">Lichtmatrosen</a>
+                    </li>
+                    <li><a href="https://peachandlime.shop/" target="_blank">Peach & Lime</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="social">
-            <h2>Socials</h2>
-            <ul>
-                <!-- <li><a href="{base}/">Twitter / X</a></li> -->
-                <li><a href="https://www.linkedin.com/company/digitalvirtues/" target="_blank"><Linkedin /></a></li>
-                <!-- <li><a href="{base}/">Instagram</a></li>
-                <li><a href="{base}/">Facebook</a></li>
-                <li><a href="{base}/">TikTok</a></li>
-                <li><a href="{base}/">YouTube</a></li>
-                <li><a href="{base}/">Discord</a></li>
-                <li><a href="{base}/">Telegram</a></li>
-                <li><a href="{base}/">Matrix</a></li>
-                <li><a href="{base}/">Mastodon</a></li> -->
-            </ul>
-        </div>
-        <div class="project">
-            <h2>Projects</h2>
-            <ul>
-                <!-- <li><a href="{base}/">Proxy Manager</a></li>
-                <li><a href="{base}/">Traffic Broker</a></li>
-                <li><a href="{base}/">Knowledge Collector</a></li>
-                <li><a href="{base}/">Creator Cartel</a></li>
-                <li><a href="{base}/">Trading AI</a></li> -->
-                <li><a href="{base}/anyblock-analytics/" target="_blank">Anyblock Analytics GmbH</a></li>
-                <li><a href="https://www.dielichtmatrosen.de/" target="_blank">Lichtmatrosen</a></li>
-                <li><a href="https://peachandlime.shop/" target="_blank">Peach & Lime</a></li>
-            </ul>
-        </div>
+        <p class="copyright">
+            Copyright &#169; {new Date().getFullYear()}
+        </p>
     </div>
 </footer>

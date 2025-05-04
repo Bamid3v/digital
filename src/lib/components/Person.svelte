@@ -21,7 +21,7 @@
         }}
     />
 
-    <div class="photo-container">   
+    <div class="photo-container">
         {#if loadedImage}
             <enhanced:img
                 src={loadedImage}
@@ -31,7 +31,6 @@
             />
         {/if}
     </div>
-
     <div class="person-info">
         <h3>{firstName} {lastName}</h3>
         <h4><a href={companyUrl} target="_blank">{role} {company}</a></h4>
@@ -56,7 +55,15 @@
         &:nth-child(even) {
             flex-direction: row-reverse;
             text-align: right;
+            .photo-container {
+                animation: slide-out linear both;
+                animation-timeline: view();
+                animation-range: cover 0% cover 30%;
+            }
             .person-info {
+                animation: slide-up linear both;
+                animation-timeline: view();
+                animation-range: cover 0% cover 40%;
                 .links {
                     justify-content: end;
                 }
@@ -93,9 +100,17 @@
             // border-radius: 50%;
             overflow: hidden;
             background-color: var(--color-background);
+            animation: slide-in linear both;
+            animation-timeline: view();
+            animation-range: cover 0% cover 30%;
         }
 
         .person-info {
+            animation: slide-up linear both;
+            animation-timeline: view();
+            animation-range: cover 0% cover 40%;
+            // transform: translateY(200px);
+
             @media only screen and (max-width: 768px) {
             }
             h3 {
@@ -161,14 +176,49 @@
 
         @media (min-width: 768px) {
             max-width: var(--breakpoint-desktop);
-            .photo {
-            }
         }
 
         &::after {
             content: '';
             clear: both;
             display: table;
+        }
+    }
+
+    @keyframes slide-in {
+        0% {
+            filter: blur(12px);
+            transform: translatex(-100px);
+            opacity: 0;
+        }
+        100% {
+            filter: blur(0);
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slide-out {
+        0% {
+            filter: blur(12px);
+            transform: translateX(100px);
+            opacity: 0;
+        }
+        100% {
+            filter: blur(0);
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slide-up {
+        0% {
+            transform: translateY(200px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
         }
     }
 </style>

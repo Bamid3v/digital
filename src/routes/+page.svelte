@@ -4,18 +4,17 @@
     import LogoText from '$lib/assets/logo-text-white.svg';
     import pillarImg from '$lib/assets/img/res/stars-bg.jpg';
     import { base } from '$app/paths';
-
+    import { page } from '$app/stores'; 
 
     let { data } = $props();
 
+    const testimonialIds = [
+        'testimonial-0040-giinco',
+        'testimonial-0050-smartloyalty',
+        'testimonial-0060-sgf'
+    ];
 
-        const testimonialIds = [
-            'testimonial-0040-giinco',
-            'testimonial-0050-smartloyalty',
-            'testimonial-0060-sgf'
-        ];
 
-        
 </script>
 
 <section class="hero-section">
@@ -44,6 +43,7 @@
 <div class="main-content">
     <section id="mission">
         <div class="container">
+            <div class="observer"></div>
             <h2>
                 <blockquote>
                     We build, operate and invest in digital revenue models with an emphasis on
@@ -297,7 +297,7 @@
                 </div>
                 <div class="slider-nav">
                     {#each testimonialIds as id}
-                        <a href="#{id}"></a>
+                        <a href="#{id}">.</a>
                     {/each}
                 </div>
             </div>
@@ -311,6 +311,7 @@
         <div class="timeline-container">
             {#each data.news as news}
                 <div class="timeline-box">
+                    <span class="line"></span>
                     <span class="ball"> <span class="inner-ball"></span> </span>
                     <div class="timeline-item">
                         <h2>{news[0]}</h2>
@@ -359,6 +360,9 @@
                 text-align: center;
                 font-size: 4rem;
                 margin-bottom: 1em;
+                animation: fade linear both;
+                animation-timeline: view();
+                animation-range: cover 0% cover 45%;
 
                 @media only screen and (max-width: 768px) {
                     font-size: 2.8rem;
@@ -380,6 +384,7 @@
             position: absolute;
             width: 100%;
             z-index: 1000;
+            animation: fade-in-top 0.5s linear 1s 1 normal none;
 
             .content {
                 display: flex;
@@ -478,6 +483,10 @@
                 width: 200px;
                 margin-top: 25px;
                 height: auto;
+                animation: focus-in-contract 2s linear 0s 1 normal none;
+                animation: rotate linear both;
+                animation-timeline: view();
+                animation-range: cover 50% cover 90%;
                 @media only screen and (max-width: 450px) {
                     width: 150px;
                 }
@@ -506,6 +515,9 @@
             padding: 1em 0.5em;
             text-wrap: pretty;
             // max-width: 900px;
+            animation: fade linear both;
+            animation-timeline: view();
+            animation-range: cover 0% cover 45%;
 
             @media only screen and (max-width: 768px) {
                 font-size: 1.75rem;
@@ -557,11 +569,20 @@
         justify-content: center;
         padding: 0rem 0.7rem;
 
+        .container h2 {
+            animation: fade linear both;
+            animation-timeline: view();
+            animation-range: cover 0% cover 45%;
+        }
+
         p {
             font-size: 1.25rem;
             text-align: center;
             text-wrap: pretty;
             max-width: 900px;
+            animation: fade linear both;
+            animation-timeline: view();
+            animation-range: cover 0% cover 45%;
         }
     }
 
@@ -574,6 +595,13 @@
             justify-content: center;
             text-align: center;
             max-width: 900px;
+            animation: fade linear both;
+            animation-timeline: view();
+            animation-range: cover 0% cover 45%;
+
+            @media only screen and (max-width: 425px) {
+                animation-range: cover 0% cover 25%;
+            }
         }
         dl {
             margin: auto;
@@ -646,6 +674,9 @@
                 color: #f8f8f8;
                 transition: all 0.5s ease-in-out;
                 list-style-image: url('$lib/assets/logo-dv-white.svg');
+                animation: fade linear both;
+                animation-timeline: view();
+                animation-range: cover 0% cover 35%;
                 &:hover {
                     background-color: #00ffff;
                     color: rgb(0 67 255);
@@ -722,6 +753,9 @@
                 border-radius: 1rem;
                 width: 100%;
                 height: 100%;
+                animation: fade linear both;
+                animation-timeline: view();
+                animation-range: cover 0% cover 35%;
 
                 img {
                     width: 100%;
@@ -798,6 +832,9 @@
             overflow: hidden;
             position: relative;
             margin: 0 auto;
+            animation: slide-up linear both;
+            animation-timeline: view();
+            animation-range: cover 0% cover 45%;
 
             .slider {
                 display: flex;
@@ -836,8 +873,17 @@
                 height: 0.75rem;
                 border-radius: 50%;
                 background-color: #00ffff;
-                opacity: 0.4;
+                opacity: 0.5;
+                color:transparent;
                 transition: opacity ease 250ms;
+            }
+
+            .slider-nav a:hover {
+                opacity: 1;
+            }
+
+            .slider-nav a:active {
+                opacity: 1;
             }
         }
     }
@@ -862,19 +908,30 @@
                 .timeline-box:nth-child(even) {
                     width: 500px;
                     border-bottom: 0px;
-                    border-top: 2px solid rgb(0 67 255);
+                    border-top: 0px;
                     border-left: 3px solid rgb(0 67 255);
                     border-right: 0px;
                     border-style: solid;
                     margin-right: 1px;
                     align-self: flex-end;
                     padding-left: 30px;
+                    animation: stroke-left linear both;
+                    animation-timeline: view();
+                    animation-range: cover 0% cover 35%;
 
                     .timeline-item {
                         padding: 25px 0 25px 25px;
                         @media only screen and (max-width: 810px) {
                             padding: 25px 0 0 0;
                         }
+                    }
+                    .line {
+                        top: -2px;
+                        left: 18px;
+                        @media only screen and (max-width: 810px){
+                            left:0px;
+                        }
+
                     }
                     .ball {
                         left: -22px;
@@ -891,12 +948,13 @@
 
                     @media only screen and (max-width: 810px) {
                         width: 100%;
-
                         align-self: flex-start;
                         padding-left: 0px;
-                        border-top: 3px solid rgb(0 67 255);
                         border-right: 3px solid rgb(0 67 255);
                         border-left: 0px solid rgb(0 67 255);
+                        animation: stroke-right linear both;
+                    animation-timeline: view();
+                    animation-range: cover 0% cover 35%;
                     }
                 }
 
@@ -913,9 +971,28 @@
                     height: 500px;
                     position: relative;
                     border-bottom: 0px;
-                    border-top: 2px solid rgb(0 67 255);
+                    // border-top: 2px solid rgb(0 67 255);
                     border-left: 0;
                     border-right: 3px solid rgb(0 67 255);
+                    animation: stroke-right linear both;
+                    animation-timeline: view();
+                    animation-range: cover 0% cover 35%;
+                    .line {
+                        width: 40%;
+                        top: -2px;
+                        background-color: rgba(0, 67, 255);
+                        height: 2px;
+                        z-index: 2;
+                        right: 18px;
+                        display: block;
+                        position: absolute;
+                        animation: line-width linear both;
+                        animation-timeline: view();
+                        animation-range: cover 20% cover 35%;
+                        @media only screen and (max-width: 810px){
+                            right:-2px;
+                        }
+                    }
                     .ball {
                         right: -22px;
                         top: -4%;
@@ -928,12 +1005,18 @@
                         position: absolute;
                         background-color: rgb(0 67 255);
                         border: 8px solid #000627;
+                        animation: ball linear both;
+                        animation-timeline: view();
+                        animation-range: cover 10% cover 35%;
 
                         .inner-ball {
                             width: 20px;
                             height: 20px;
                             border-radius: 100%;
                             background-color: #000627;
+                            animation: innerBall linear both;
+                            animation-timeline: view();
+                            animation-range: cover 20% cover 40%;
                         }
 
                         @media only screen and (max-width: 810px) {
@@ -962,6 +1045,9 @@
                         h2 {
                             font-size: 48px;
                             margin-bottom: 0;
+                            animation: year linear both;
+                            animation-timeline: view();
+                            animation-range: cover 0% cover 15%;
                         }
                     }
                 }
@@ -978,5 +1064,117 @@
         background-position: bottom;
         background-repeat: no-repeat;
         background-size: cover;
+    }
+
+    // keyframes
+
+    @keyframes fade-in-top {
+        0% {
+            transform: translateY(-100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes focus-in-contract {
+        0% {
+            filter: blur(12px);
+            opacity: 0;
+        }
+        100% {
+            filter: blur(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(-45deg);
+        }
+    }
+
+    @keyframes fade {
+        0% {
+            scale: 0.6;
+            transform: translateY(100px);
+            filter: blur(12px);
+            opacity: 0;
+        }
+        100% {
+            scale: 1;
+            transform: translateY(0px);
+            filter: blur(0);
+            opacity: 1;
+        }
+    }
+    @keyframes slide-up {
+        0% {
+            transform: translateY(100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+    }
+    @keyframes stroke-left {
+        0% {
+            border-left: 3px solid rgb(0 67 255);
+        }
+        100% {
+            border-left: 3px solid #00ffff;
+        }
+    }
+    @keyframes stroke-right {
+        0% {
+            border-right: 3px solid rgb(0 67 255);
+        }
+        100% {
+            border-right: 3px solid #00ffff;
+        }
+    }
+
+    @keyframes line-width {
+        0% {
+            width: 40%;
+            background-color: rgba(0, 67, 255);
+        }
+        100% {
+            width: 100%;
+            background-color: #00ffff;
+        }
+    }
+
+    @keyframes year {
+        0% {
+            transform: translateY(100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+    }
+    @keyframes ball {
+        0% {
+            background-color: rgba(0, 67, 255);
+        }
+        100% {
+            background-color: #00ffff;
+        }
+    }
+    @keyframes innerBall {
+        0% {
+            background-color: #000627;
+        }
+        100% {
+            background-color: transparent;
+        }
     }
 </style>
