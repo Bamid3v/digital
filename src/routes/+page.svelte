@@ -1184,7 +1184,7 @@
             background-color: rgba(0, 67, 255);
         }
         100% {
-            width: 90%;
+            width: 100%;
             background-color: var(--color-cyan);
         }
     }
