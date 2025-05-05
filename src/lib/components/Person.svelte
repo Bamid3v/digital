@@ -2,6 +2,8 @@
     import { loadImageModule } from '$lib/loadImageModule';
     import JsonLd from '$lib/components/JSON-LD.svelte';
 
+
+
     let { firstName, lastName, description, role, company, companyUrl, img, homepage, linkedin } =
         $props();
 
@@ -59,6 +61,12 @@
                 animation: slide-out linear both;
                 animation-timeline: view();
                 animation-range: cover 0% cover 30%;
+
+                @media only screen and (max-width: 768px) {
+                    animation: slide-out-mobile linear both;
+                    animation-timeline: view();
+                    animation-range: cover 0% cover 30%;
+                }
             }
             .person-info {
                 animation: slide-up linear both;
@@ -72,7 +80,7 @@
 
         @media only screen and (max-width: 768px) {
             flex-direction: column;
-            gap: 6px;
+            gap: 20px;
             justify-content: center;
             text-align: center;
             padding: 0.5rem;
@@ -85,6 +93,7 @@
                 .person-info {
                     .links {
                         justify-content: center;
+                        text-align: center;
                     }
                 }
             }
@@ -98,6 +107,7 @@
             justify-content: center;
             align-items: center;
             // border-radius: 50%;
+            text-align: center;
             overflow: hidden;
             background-color: var(--color-background);
             animation: slide-in linear both;
@@ -202,6 +212,19 @@
         0% {
             filter: blur(12px);
             transform: translateX(100px);
+            opacity: 0;
+        }
+        100% {
+            filter: blur(0);
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slide-out-mobile {
+        0% {
+            filter: blur(12px);
+            transform: translateX(10px);
             opacity: 0;
         }
         100% {

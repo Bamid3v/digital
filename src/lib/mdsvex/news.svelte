@@ -38,6 +38,13 @@
         animation: item linear both;
         animation-timeline: view();
         animation-range: cover 25% cover 50%;
+
+        @media only screen and (max-width: 810px) {
+            animation: itemTab linear both;
+            animation-timeline: view();
+            animation-range: cover 15% cover 35%;
+        }
+
         @media only screen and (max-width: 768px) {
             animation: itemMob linear both;
             animation-timeline: view();
@@ -50,14 +57,25 @@
         }
         h3 {
             font-size: 32px;
-            color: #00ffff;
+            color: var(--color-cyan);
             margin-bottom: 1rem;
         }
     }
 
     @keyframes item {
         0% {
-            transform: translateX(100px);
+            transform: translateX(20px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0px);
+            opacity: 1;
+        }
+    }
+
+    @keyframes itemTab {
+        0% {
+            transform: translateX(20px);
             opacity: 0;
         }
         100% {
@@ -68,7 +86,7 @@
     
     @keyframes itemMob {
         0% {
-            transform: translateX(50px);
+            transform: translateX(20px);
             opacity: 0;
         }
         100% {

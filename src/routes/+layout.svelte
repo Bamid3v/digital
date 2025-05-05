@@ -2,7 +2,7 @@
     import { base } from '$app/paths';
     import '$lib/styles/layout.scss';
     import { page } from '$app/stores';
-    import { Linkedin } from '@lucide/svelte';
+    import { Linkedin } from 'lucide-svelte';
 
     import LogoText from '$lib/assets/logo-text-white.svg';
 
@@ -70,7 +70,7 @@
                     <!-- <li><a href="{base}/">Twitter / X</a></li> -->
                     <li>
                         <a href="https://www.linkedin.com/company/digitalvirtues/" target="_blank"
-                            ><Linkedin /></a
+                            ><Linkedin size={24} /><span>Linkedin</span></a
                         >
                     </li>
                     <!-- <li><a href="{base}/">Instagram</a></li>
@@ -92,9 +92,7 @@
                     <li><a href="{base}/">Creator Cartel</a></li>
                     <li><a href="{base}/">Trading AI</a></li> -->
                     <li>
-                        <a href="{base}/anyblock-analytics/" target="_blank"
-                            >Anyblock Analytics GmbH</a
-                        >
+                        <a href="{base}/anyblock-analytics/">Anyblock Analytics GmbH</a>
                     </li>
                     <li>
                         <a href="https://www.dielichtmatrosen.de/" target="_blank">Lichtmatrosen</a>
@@ -104,7 +102,7 @@
             </div>
         </div>
         <p class="copyright">
-            Copyright &#169; {new Date().getFullYear()}
+            Copyright &#169; {new Date().getFullYear()} Digital Virtues GmbH. All rights reserved.
         </p>
     </div>
 </footer>

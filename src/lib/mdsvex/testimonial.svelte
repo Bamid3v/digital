@@ -58,7 +58,7 @@
         width: 100%;
         padding: 1rem;
         border-radius: 1rem;
-        background-color: rgb(0, 67, 255);
+        background-color: var(--color-blue-light);
 
         @media only screen and (max-width: 768px) {
             flex-direction: column;

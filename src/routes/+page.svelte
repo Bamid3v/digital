@@ -4,17 +4,17 @@
     import LogoText from '$lib/assets/logo-text-white.svg';
     import pillarImg from '$lib/assets/img/res/stars-bg.jpg';
     import { base } from '$app/paths';
-    import { page } from '$app/stores'; 
+    import { ChevronLeft, ChevronRight } from 'lucide-svelte';
 
     let { data } = $props();
 
-    const testimonialIds = [
-        'testimonial-0040-giinco',
-        'testimonial-0050-smartloyalty',
-        'testimonial-0060-sgf'
-    ];
+    const slides = data.testimonials.map((testimonial) => {
+        return {
+            id: '#testimonial-' + testimonial.slug
+        };
+    });
 
-
+    
 </script>
 
 <section class="hero-section">
@@ -289,15 +289,23 @@
         <div class="test-bg-blend"></div>
         <div class="container">
             <h2>Testimonials</h2>
+            <div class="arrows">
+                <!-- {slides[count].id} -->
+                <div class="arrows">
+                    <a href={slides[0].id}><ChevronLeft size={40} /></a>
+                    <a href={slides[2].id}><ChevronRight size={40} /></a>
+                </div>
+            </div>
             <div class="slider-wrapper">
                 <div class="slider">
+
                     {#each data.testimonials as testimonial}
                         <testimonial.default id="testimonial-{testimonial.slug}" />
                     {/each}
                 </div>
                 <div class="slider-nav">
-                    {#each testimonialIds as id}
-                        <a href="#{id}">.</a>
+                    {#each data.testimonials as testimonial}
+                        <a href="#testimonial-{testimonial.slug}">.</a>
                     {/each}
                 </div>
             </div>
@@ -345,7 +353,7 @@
         &#mission,
         &#vision,
         &#values {
-            background-color: #000627;
+            background-color: var(--color-blue-dark);
         }
 
         &#vision,
@@ -362,7 +370,7 @@
                 margin-bottom: 1em;
                 animation: fade linear both;
                 animation-timeline: view();
-                animation-range: cover 0% cover 45%;
+                animation-range: cover 0% cover 35%;
 
                 @media only screen and (max-width: 768px) {
                     font-size: 2.8rem;
@@ -384,7 +392,6 @@
             position: absolute;
             width: 100%;
             z-index: 1000;
-            animation: fade-in-top 0.5s linear 1s 1 normal none;
 
             .content {
                 display: flex;
@@ -413,7 +420,7 @@
             }
 
             a {
-                color: #f8f8f8;
+                color: var(--color-white);
                 text-decoration: none;
                 transition: all 0.5s ease-in-out;
 
@@ -426,7 +433,7 @@
                 &:hover {
                     text-decoration: underline;
                     text-underline-offset: 0.2rem;
-                    color: aquamarine;
+                    color: var(--color-cyan);
                 }
             }
 
@@ -472,8 +479,12 @@
             .blend-bg {
                 position: absolute;
                 bottom: 0;
-                background-color: #000627;
-                background: linear-gradient(1800deg, #000627 0%, rgba(255, 255, 255, 0) 100%);
+                background-color: var(--color-blue-dark);
+                background: linear-gradient(
+                    1800deg,
+                    var(--color-blue-dark) 0%,
+                    rgba(255, 255, 255, 0) 100%
+                );
                 left: 0;
                 width: 100%;
                 height: 40%;
@@ -633,7 +644,7 @@
             width: 100%;
             z-index: 1;
             height: 100%;
-            background: #000627;
+            background: var(--color-blue-dark);
             background: linear-gradient(
                 0deg,
                 rgba(0, 6, 39, 0) 0%,
@@ -663,7 +674,7 @@
 
             .pillar {
                 cursor: pointer;
-                background-color: rgb(0 67 255);
+                background-color: var(--color-blue-light);
                 border-radius: 12px;
                 padding: 1em;
                 text-align: left;
@@ -671,29 +682,29 @@
                 flex-direction: column;
                 justify-content: start;
                 align-items: center;
-                color: #f8f8f8;
+                color: var(--color-white);
                 transition: all 0.5s ease-in-out;
                 list-style-image: url('$lib/assets/logo-dv-white.svg');
                 animation: fade linear both;
                 animation-timeline: view();
                 animation-range: cover 0% cover 35%;
                 &:hover {
-                    background-color: #00ffff;
-                    color: rgb(0 67 255);
+                    background-color: var(--color-cyan);
+                    color: var(--color-blue-light);
                     list-style-image: url('$lib/assets/logo-dv-blue-light.svg');
 
                     a {
-                        color: rgb(0 67 255);
+                        color: var(--color-blue-light);
                         text-decoration: underline;
                     }
 
                     svg {
-                        color: rgb(0 67 255);
+                        color: var(--color-blue-light);
                     }
                 }
 
                 a {
-                    color: #f8f8f8;
+                    color: var(--color-white);
                     text-decoration: none;
                     font-weight: 600;
                     font-size: 1.25rem;
@@ -704,7 +715,7 @@
                     width: 94px;
                     height: 94px;
                     margin-bottom: 1.5rem;
-                    color: #f8f8f8;
+                    color: var(--color-white);
 
                     @media only screen and (max-width: 768px) {
                         width: 72px;
@@ -770,7 +781,7 @@
 
     /* Team Section */
     section#team {
-        background-color: rgb(0 67 255);
+        background-color: var(--color-blue-light);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -781,7 +792,7 @@
             top: 0;
             width: 100%;
             height: 50%;
-            background: #000627;
+            background: var(--color-blue-dark);
             background: linear-gradient(180deg, rgba(0, 6, 39, 1) 0%, rgba(0, 67, 255, 1) 100%);
         }
 
@@ -816,12 +827,40 @@
             bottom: 0;
             width: 100%;
             height: 50%;
-            background: #000627;
+            background: var(--color-blue-dark);
             background: linear-gradient(0deg, rgba(0, 6, 39, 1) 0%, rgba(0, 67, 255, 0) 100%);
         }
         .container {
             padding: 6rem 0rem;
             max-width: 100%;
+            position: relative;
+
+            .arrows {
+                position: absolute;
+                right: 0%;
+                z-index: 5;
+                top: 55%;
+                width: 100%;
+                display: flex;
+                padding: 0 20px;
+                justify-content: space-between;
+                align-items: center;
+
+                @media only screen and (max-width: 768px) {
+                    display: none;
+                }
+            }
+
+            .arrows a {
+                border-radius: 50%;
+                background-color: var(--color-cyan);
+                color: var(--color-blue-dark);
+                font-size: 30px;
+                cursor: pointer;
+                border: none;
+                padding: 5px;
+            }
+
         }
         .slider-wrapper {
             display: flex;
@@ -834,7 +873,7 @@
             margin: 0 auto;
             animation: slide-up linear both;
             animation-timeline: view();
-            animation-range: cover 0% cover 45%;
+            animation-range: cover 0% cover 25%;
 
             .slider {
                 display: flex;
@@ -868,13 +907,15 @@
                 }
             }
 
+            
+
             .slider-nav a {
                 width: 0.75rem;
                 height: 0.75rem;
                 border-radius: 50%;
-                background-color: #00ffff;
+                background-color: var(--color-cyan);
                 opacity: 0.5;
-                color:transparent;
+                color: transparent;
                 transition: opacity ease 250ms;
             }
 
@@ -890,7 +931,7 @@
 
     /* Timeline Section */
     section#timeline {
-        background-color: #000627;
+        background-color: var(--color-blue-dark);
         .container {
             display: flex;
             flex-direction: column;
@@ -909,7 +950,7 @@
                     width: 500px;
                     border-bottom: 0px;
                     border-top: 0px;
-                    border-left: 3px solid rgb(0 67 255);
+                    border-left: 3px solid var(--color-blue-light);
                     border-right: 0px;
                     border-style: solid;
                     margin-right: 1px;
@@ -922,16 +963,15 @@
                     .timeline-item {
                         padding: 25px 0 25px 25px;
                         @media only screen and (max-width: 810px) {
-                            padding: 25px 0 0 0;
+                            padding: 25px 30px 30px 25px;
                         }
                     }
                     .line {
                         top: -2px;
                         left: 18px;
-                        @media only screen and (max-width: 810px){
-                            left:0px;
+                        @media only screen and (max-width: 810px) {
+                            left: 0px;
                         }
-
                     }
                     .ball {
                         left: -22px;
@@ -950,11 +990,11 @@
                         width: 100%;
                         align-self: flex-start;
                         padding-left: 0px;
-                        border-right: 3px solid rgb(0 67 255);
-                        border-left: 0px solid rgb(0 67 255);
+                        border-right: 3px solid var(--color-blue-light);
+                        border-left: 0px solid var(--color-blue-light);
                         animation: stroke-right linear both;
-                    animation-timeline: view();
-                    animation-range: cover 0% cover 35%;
+                        animation-timeline: view();
+                        animation-range: cover 0% cover 35%;
                     }
                 }
 
@@ -966,21 +1006,19 @@
                     padding: 0 1rem;
                 }
                 .timeline-box {
-                    // width: 400px;
                     max-width: 500px;
                     height: 500px;
                     position: relative;
                     border-bottom: 0px;
-                    // border-top: 2px solid rgb(0 67 255);
                     border-left: 0;
-                    border-right: 3px solid rgb(0 67 255);
+                    border-right: 3px solid var(--color-blue-light);
                     animation: stroke-right linear both;
                     animation-timeline: view();
                     animation-range: cover 0% cover 35%;
                     .line {
-                        width: 40%;
+                        width: 30%;
                         top: -2px;
-                        background-color: rgba(0, 67, 255);
+                        background-color: var(--color-blue-light);
                         height: 2px;
                         z-index: 2;
                         right: 18px;
@@ -989,8 +1027,8 @@
                         animation: line-width linear both;
                         animation-timeline: view();
                         animation-range: cover 20% cover 35%;
-                        @media only screen and (max-width: 810px){
-                            right:-2px;
+                        @media only screen and (max-width: 810px) {
+                            right: -2px;
                         }
                     }
                     .ball {
@@ -1003,8 +1041,8 @@
                         align-items: center;
                         border-radius: 100%;
                         position: absolute;
-                        background-color: rgb(0 67 255);
-                        border: 8px solid #000627;
+                        background-color: var(--color-blue-light);
+                        border: 8px solid var(--color-blue-dark);
                         animation: ball linear both;
                         animation-timeline: view();
                         animation-range: cover 10% cover 35%;
@@ -1013,14 +1051,14 @@
                             width: 20px;
                             height: 20px;
                             border-radius: 100%;
-                            background-color: #000627;
+                            background-color: var(--color-blue-dark);
                             animation: innerBall linear both;
                             animation-timeline: view();
                             animation-range: cover 20% cover 40%;
                         }
 
                         @media only screen and (max-width: 810px) {
-                            border: 4px solid #000627;
+                            border: 4px solid var(--color-blue-dark);
                             width: 30px;
                             height: 30px;
                             display: none;
@@ -1125,29 +1163,29 @@
     }
     @keyframes stroke-left {
         0% {
-            border-left: 3px solid rgb(0 67 255);
+            border-left: 3px solid var(--color-blue-light);
         }
         100% {
-            border-left: 3px solid #00ffff;
+            border-left: 3px solid var(--color-cyan);
         }
     }
     @keyframes stroke-right {
         0% {
-            border-right: 3px solid rgb(0 67 255);
+            border-right: 3px solid var(--color-blue-light);
         }
         100% {
-            border-right: 3px solid #00ffff;
+            border-right: 3px solid var(--color-cyan);
         }
     }
 
     @keyframes line-width {
         0% {
-            width: 40%;
+            width: 30%;
             background-color: rgba(0, 67, 255);
         }
         100% {
-            width: 100%;
-            background-color: #00ffff;
+            width: 90%;
+            background-color: var(--color-cyan);
         }
     }
 
@@ -1166,12 +1204,12 @@
             background-color: rgba(0, 67, 255);
         }
         100% {
-            background-color: #00ffff;
+            background-color: var(--color-cyan);
         }
     }
     @keyframes innerBall {
         0% {
-            background-color: #000627;
+            background-color: var(--color-blue-dark);
         }
         100% {
             background-color: transparent;
