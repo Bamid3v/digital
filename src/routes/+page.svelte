@@ -125,7 +125,7 @@
                     role="CTO"
                     company="Digital Virtues GmbH"
                     companyUrl="https://digitalvirtues.com/"
-                    img="sascha.png"
+                    img="saschagoebel.png"
                     homepage="https://www.saschagoebel.com/"
                     linkedin="https://www.linkedin.com/in/saschagoebel/"
                 />
