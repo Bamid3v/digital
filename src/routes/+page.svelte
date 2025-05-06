@@ -2,7 +2,7 @@
     import Person from '$lib/components/Person.svelte';
     import LogoDv from '$lib/assets/logo-dv-white.svg';
     import LogoText from '$lib/assets/logo-text-white.svg';
-    import pillarImg from '$lib/assets/img/res/stars-bg.jpg';
+    import pillarImg from '$lib/assets/img/res/stars-bg.avif';
     import { base } from '$app/paths';
     import { ChevronLeft, ChevronRight } from 'lucide-svelte';
 
@@ -13,7 +13,6 @@
             id: '#testimonial-' + testimonial.slug
         };
     });
-
 
     let count = $state(0); // Make count reactive
 
@@ -49,7 +48,13 @@
     <div class="hero">
         <div class="overlay">
             <div class="container">
-                <img src={LogoDv} alt="Digital Virtues logo" class="logo-dv" />
+                <img
+                    src={LogoDv}
+                    loading="lazy"
+                    sizes="(max-width: 600px) 100vw, 400px"
+                    alt="Digital Virtues logo"
+                    class="logo-dv"
+                />
             </div>
             <div class="blend-bg"></div>
         </div>
@@ -294,7 +299,7 @@
                     </ul>
                 </div>
                 <div class=" pillar-img">
-                    <img src={pillarImg} alt="" />
+                    <img src={pillarImg} loading="lazy" alt="" />
                 </div>
             </div>
         </div>
@@ -478,7 +483,7 @@
             height: 100%;
             text-align: center;
             padding: 0;
-            background: url('$lib/assets/img/res/hero.jpg') center center / cover no-repeat;
+            background: url('$lib/assets/img/res/hero.webp') center center / cover no-repeat;
             .overlay {
                 display: flex;
                 position: relative;
@@ -1109,8 +1114,8 @@
 
     //Background
     .main-content {
-        background-image: url('$lib/assets/img/res/imageBlend.jpg');
-        background-position: bottom;
+        background-image: url('$lib/assets/img/res/imageBlend.webp');
+        background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
