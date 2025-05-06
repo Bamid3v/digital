@@ -1,5 +1,7 @@
 import { loadContent } from '$lib/loadContent';
 
+export const csr = true;
+
 export async function load() {
     const testimonials = (
         await loadContent(

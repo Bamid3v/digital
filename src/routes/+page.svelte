@@ -14,7 +14,22 @@
         };
     });
 
-    
+
+    let count = $state(0); // Make count reactive
+
+    function next() {
+        count = (count + 1) % slides.length;
+        console.log('next', count);
+    }
+    function prev() {
+        count = (count - 1 + slides.length) % slides.length;
+        console.log('prev', count);
+    }
+
+    function handleKeydown(e: any) {
+        if (e.key === 'ArrowRight') next();
+        if (e.key === 'ArrowLeft') prev();
+    }
 </script>
 
 <section class="hero-section">
@@ -292,20 +307,19 @@
             <div class="arrows">
                 <!-- {slides[count].id} -->
                 <div class="arrows">
-                    <a href={slides[0].id}><ChevronLeft size={40} /></a>
-                    <a href={slides[2].id}><ChevronRight size={40} /></a>
+                    <a href={slides[count].id} onclick={prev}><ChevronLeft size={40} /></a>
+                    <a href={slides[count].id} onclick={next}><ChevronRight size={40} /></a>
                 </div>
             </div>
             <div class="slider-wrapper">
                 <div class="slider">
-
                     {#each data.testimonials as testimonial}
                         <testimonial.default id="testimonial-{testimonial.slug}" />
                     {/each}
                 </div>
                 <div class="slider-nav">
-                    {#each data.testimonials as testimonial}
-                        <a href="#testimonial-{testimonial.slug}">.</a>
+                    {#each slides as slide, index}
+                        <a href={slide.id} class={index === count ? 'active' : ''}>.</a>
                     {/each}
                 </div>
             </div>
@@ -860,7 +874,6 @@
                 border: none;
                 padding: 5px;
             }
-
         }
         .slider-wrapper {
             display: flex;
@@ -907,8 +920,6 @@
                 }
             }
 
-            
-
             .slider-nav a {
                 width: 0.75rem;
                 height: 0.75rem;
@@ -923,7 +934,7 @@
                 opacity: 1;
             }
 
-            .slider-nav a:active {
+            .slider-nav .active {
                 opacity: 1;
             }
         }

@@ -12,6 +12,7 @@
 
     let { children }: Props = $props();
     let currentPath = $page.url.pathname;
+
 </script>
 
 <svelte:head>
