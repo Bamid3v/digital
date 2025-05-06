@@ -5,14 +5,29 @@
     import { Linkedin } from 'lucide-svelte';
 
     import LogoText from '$lib/assets/logo-text-white.svg';
+    import { onDestroy } from 'svelte';
 
     interface Props {
         children?: import('svelte').Snippet;
     }
 
     let { children }: Props = $props();
-    let currentPath = $page.url.pathname;
 
+    let currentPath = $page.url.pathname;
+    let visible = $state(true);
+
+    const unsubscribe = page.subscribe(($page) => {
+        currentPath = $page.url.pathname;
+        if (currentPath === '/') {
+            visible = true;
+        } else {
+            visible = false;
+        }
+    });
+
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
 
 <svelte:head>
@@ -31,7 +46,7 @@
 </svelte:head>
 
 <header>
-    <nav class={currentPath === '/' ? 'none' : ''}>
+    <nav class={visible ? 'none' : ''}>
         <div class="content">
             <a href="{base}/" class="brand">
                 <img class="logo-text" src={LogoText} alt="Digital Virtues GmbH" />
